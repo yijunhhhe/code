@@ -60,7 +60,7 @@ if classificationCode == "B" or classificationCode == "D" or classificationCode 
           "The vehicle's odometer reading at the end of the rental period: {}\n"
           "The number of kilometers driven during the rental period: {}\n"
           "The amount of money billed to the customer for the rental period ${:.2f}\n"
-          .format(name, age, classificationCode, numberOfDays, startOdometer, endOdometer, distance,    totalCharge))
+          .format(name, age, classificationCode, numberOfDays, startOdometer, endOdometer, distance, totalCharge))
 
 # If Users do not enter the correct classification code
 else:
