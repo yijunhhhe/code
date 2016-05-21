@@ -17,7 +17,7 @@ startOdometer = int(input("Please enter odometer reading at the start of the ren
 endOdometer = int(input("Please enter odometer reading at the end of the rental period "))
 distance = endOdometer - startOdometer
 numberOfWeeks = math.ceil(numberOfDays / 7)
-#what?????????????????????????
+
 # Decide if additional fee would be applied
 if age >= 25:
     ADDITIONAL_FEE = 0
