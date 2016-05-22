@@ -11,7 +11,7 @@ while moreGrades == "Y":
     print("Enter the exam grades.")
     total = 0
     for i in range(1, numExams + 1):
-        score = int(input("Exam {}: ".format(numExams)))
+        score = int(input("Exam {}: ".format(i)))
         total = total + score
 
     average = total/numExams
