@@ -14,7 +14,7 @@ def nop():
 
 # Parameter check
 def my_abs(x):
-    if not isintance(x,(int,float)):
+    if not isinstance(x,(int,float)):
         raise TypeError('bad operand type')
     if x >= 0:
         return x
