@@ -1,3 +1,11 @@
-index = "aasdfasdfasdfasdfasd"
-index1 = index[:6]
-print(index1)
+try:
+    print('try...')
+    r = 10 / int('a')
+    print('result:', r)
+except ValueError as e:
+    print('ValueError:', e)
+except ZeroDivisionError as e:
+    print('ZeroDivisionError:', e)
+finally:
+    print('finally...')
+print('END')
