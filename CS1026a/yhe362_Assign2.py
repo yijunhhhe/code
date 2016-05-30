@@ -26,7 +26,7 @@ while line != "":
 
 # Make sure tweets file exists
 try:
-    tweetFile = open("tweetss.txt","r")
+    tweetFile = open("2.txt","r")
 except IOError as fileNameError:
     print(fileNameError)
     sys.exit(0)
