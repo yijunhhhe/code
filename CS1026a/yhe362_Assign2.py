@@ -1,4 +1,9 @@
-def determineTimeZone(line, tweetsWordList):
+# Name: Yijun He Student Number:
+
+## This function determine which time zone the twitter was in
+# @param tweetsWordList a list consisting of each word from a line
+# @eturn the time zone
+def determineTimeZone(tweetsWordList):
     latitude = float(tweetsWordList[0].strip("[,"))
     longitude = float(tweetsWordList[1].strip("]"))
     if  24.660845 < latitude < 49.189787:
@@ -16,12 +21,18 @@ def determineTimeZone(line, tweetsWordList):
         timeZone = ""
     return timeZone
 
+## This function compute the sentiment value for each region
+# @param region a list consisting of tweets from each region
+# @return the total "happiness score" of each region
 def computeRegionSentiment(region):
     scoreOfRegion = sum(region)/len(region)
     return scoreOfRegion
 
+## This function compute the sentiment value for each tweet
+# @Param tweetsWordList indicating a list consisting of each word from a line
+# @Param keywordList indicating a list consisting of all keywords
+# @return the happiness score of each tweet
 def computeScoreOfTheTweet(tweetsWordList,keywordList):
-    keyWordYes = False
     numOfKeywords = 0
     sentimentValues = 0
     # Obtain every word in the tweets word list
@@ -38,13 +49,10 @@ def computeScoreOfTheTweet(tweetsWordList,keywordList):
                 pass
     if numOfKeywords > 0:
         scoreOfTheTweet = sentimentValues/numOfKeywords
-        keywordYes = True
         return scoreOfTheTweet
 
-
-
+# import sys module
 import sys
-# Name: Yijun He Student Number:
 
 # Receive the input of keyword file's name
 #keywordFileName = input("Please enter the name of keyword file: ")
@@ -56,7 +64,7 @@ except IOError as fileNameError:
     print(fileNameError)
     sys.exit(0)
 
-# Read lines from Keywords file and store it in list
+# Read lines from Keywords file and store it in keyword list
 line = keywordFile.readline()
 keywordList = []
 while line != "":
@@ -71,7 +79,7 @@ while line != "":
 
 # Make sure tweets file exists
 try:
-    tweetFile = open("1.txt","r")
+    tweetFile = open("tweets.txt","r")
 except IOError as fileNameError:
     print(fileNameError)
     sys.exit(0)
@@ -87,11 +95,14 @@ line = tweetFile.readline()
 count = 1
 while line != "":
     tweetsWordList = line.split(" ")
+    # Compute the score of each tweet
     scoreOfTheTweet = computeScoreOfTheTweet(tweetsWordList,keywordList)
-    timeZone = determineTimeZone(line,tweetsWordList)
-
+    # find the time zone the tweet was in
+    timeZone = determineTimeZone(tweetsWordList)
     print(count, scoreOfTheTweet)
     print(timeZone)
+    # Ignore the tweet without keywords and outside time zone
+    # add the score of the tweet to corresponding time zone
     if scoreOfTheTweet != None and timeZone != "":
         if timeZone == "Pacific":
             pacific.append(scoreOfTheTweet)
@@ -112,7 +123,13 @@ try:
     scoreOfEastern = computeRegionSentiment(eastern)
 except ZeroDivisionError:
     pass
-print(scoreOfPacific,scoreOfMountain,scoreOfCentral,scoreOfEastern)
+
+print("The happiness score in pacific is: {}, and the number of tweets is: {}\n"
+      "The happiness score in Mountain is: {}, and the numebr of tweets is: {}\n"
+      "The happiness score in Central is: {}, and the numebr of tweets is: {}\n"
+      "The happiness score in Eastern is: {}, and the numebr of tweets is: {}\n"
+      .format(scoreOfPacific, len(pacific), scoreOfMountain, len(mountain),
+              scoreOfCentral, len(central), scoreOfEastern, len(eastern) ))
 
 
 
