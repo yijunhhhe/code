@@ -1,10 +1,19 @@
-class Student(object):
+def sum(list):
+    smallest = 100
+    largest = 0
+    evenList = []
+    oddList = []
+    for i in list:
+        if i % 2 == 0:
+            evenList.append(i)
+        if i % 2 == 1:
+            oddList.append(i)
+    print(evenList)
+    print(oddList)
+    sum = min(oddList) + max(evenList)
+    return sum
 
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
+list = [1,3,5,6,8,43,3,9,87,56,44,33,2,45]
+sum = sum(list)
+print(sum)
 
-student1 = Student("Yijun",50)
-student1.age = 8
-
-print(student1.age)
