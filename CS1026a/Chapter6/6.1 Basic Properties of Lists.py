@@ -1,7 +1,7 @@
 # Creating Lists----
 values = [2,3,5,7,6,5,1]
 
-# Accessing List Elemetns----
+# Accessing List Elements----
 print(values[5])
 
 # Traversing Lists----

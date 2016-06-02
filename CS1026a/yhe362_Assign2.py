@@ -1,5 +1,8 @@
 # Name: Yijun He Student Number:
 
+# import sys module
+import sys
+
 ## This function determine which time zone the twitter was in
 # @param tweetsWordList a list consisting of each word from a line
 # @eturn the time zone
@@ -47,12 +50,10 @@ def computeScoreOfTheTweet(tweetsWordList,keywordList):
                 numOfKeywords = numOfKeywords + 1
             except ValueError:
                 pass
+    # ignore the line without keywords
     if numOfKeywords > 0:
         scoreOfTheTweet = sentimentValues/numOfKeywords
         return scoreOfTheTweet
-
-# import sys module
-import sys
 
 # Receive the input of keyword file's name
 #keywordFileName = input("Please enter the name of keyword file: ")
@@ -115,13 +116,12 @@ while line != "":
     line = tweetFile.readline()
     count = count + 1
 
-
 try:
     scoreOfPacific = computeRegionSentiment(pacific)
     scoreOfMountain = computeRegionSentiment(mountain)
     scoreOfCentral = computeRegionSentiment(central)
     scoreOfEastern = computeRegionSentiment(eastern)
-except ZeroDivisionError:
+except ValueError:
     pass
 
 print("The happiness score in pacific is: {}, and the number of tweets is: {}\n"
@@ -131,5 +131,6 @@ print("The happiness score in pacific is: {}, and the number of tweets is: {}\n"
       .format(scoreOfPacific, len(pacific), scoreOfMountain, len(mountain),
               scoreOfCentral, len(central), scoreOfEastern, len(eastern) ))
 
-
+keywordFile.close()
+tweetFile.close()
 
