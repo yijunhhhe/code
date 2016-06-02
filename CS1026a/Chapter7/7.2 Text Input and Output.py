@@ -2,15 +2,15 @@
 infile = open("hello.txt","r")
 for line in infile:
     print(line)
-# to remove the newline character
+
+
+# remove the newline character
 line = line.rstrip()
 line = line.rstrip(".?")
-# remove the left side character
-line = line.lstrip()
-# remove both side
-line = line.strip()
+line = line.lstrip() # remove the left side character
+line = line.strip() # remove both side
 
-#------------------------
+
 # Reading Words
 line = "what asdf asdfdf d fd fd  "
 wordList = line.split(" ",2)
@@ -21,13 +21,12 @@ line.split()
 line.split("")
 line.rsplit("",2)
 
-#------------------
+
 # Reading Characters
 inputFile = open("hello.txt","r")
 char = inputFile.read(1)
 
 
-#------------------
 # Reading Records
 line = infile.readline()
 while line != "":
@@ -36,7 +35,7 @@ while line != "":
     population = int(line)
     line = infile.readline()
 
-#-------------------------
+
 # File Operations
 #f = open(filename, mode)
 #f.close()
