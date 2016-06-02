@@ -9,7 +9,6 @@ string = "I really am very happy for you I love the weather I am also sad and ha
 for line in keywordFile:
     line = line.strip()
     line = line.split(",")
-    print(int(line[1]))
     if int(line[1]) == 20:
         if line[0] not in positive:
             positive.append(line[0])

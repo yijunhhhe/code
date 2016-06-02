@@ -9,20 +9,19 @@ string = "I really am very happy for you I love the weather I am also sad and ha
 for line in keywordFile:
     line = line.strip()
     line = line.split(",")
-    print(int(line[1]))
-    if int(line[1]) == 20:
-        if line[0] not in positive:
-            positive.append(line[0])
-    elif int(line[1]) == 0:
-        if line[0] not in neutral:
-            neutral.append(line[0])
-    elif int(line[1]) == -10:
-        if line[0] not in negative:
-            negative.append(line[0])
     for word in line:
         word.strip(" ")
         keywordList.append(word)
-
+    for i in range (1,len(keywordList),2):
+        if int(keywordList[i]) == 20:
+            if keywordList[i - 1] not in positive:
+                positive.append(keywordList[i - 1])
+        elif int(keywordList[i]) == 0:
+            if keywordList[i - 1] not in neutral:
+                neutral.append(keywordList[i - 1])
+        elif int(keywordList[i]) == -10:
+            if keywordList[i - 1] not in negative:
+                negative.append(keywordList[i - 1])
 string = string.split(" ")
 for word in string:
     if word in keywordList:
