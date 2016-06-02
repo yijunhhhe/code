@@ -11,7 +11,7 @@ try:
     process(line)
 except IOError :
     print("Could not open the input file")
-except Exception as exceptObj:
+except Exception as exceptObj:  # Store the exception in varaible exceptobj
     print("Error:", str(exceptObj))
 
 
