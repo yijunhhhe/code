@@ -67,7 +67,6 @@ while i < len(words) :
 temp = values[i]
 values[i] = values[j]
 values[j] = temp
-
 swap(values, i, j)  # another way to swap
 
 # Reading Input

@@ -36,6 +36,6 @@ values = [1, 16, 9, 4] # sort
 values.sort() # Now values is [1, 4, 9, 16]
 
 # Copying Lists
-prices = values #first way
+prices = values #first way. this only add a reference
 prices = list(values) #second way
 characters = list("Hello") # The list is ["H", "e", "l", "l", "o"]
