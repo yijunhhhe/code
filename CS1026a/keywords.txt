@@ -28,5 +28,5 @@ hurt,1
 alone,1
 sad,1
 positive,5
-regrets, 1
-God, 5
+regrets,1
+God,5
