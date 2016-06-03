@@ -22,5 +22,7 @@ outfile.write("Hello World!\n")
 print("Hello World", file = outfile)
 print("Hello World", end="", file = outfile)
 
+# Read and write the same file
+infile = open("input.txt","r+")
 
 
