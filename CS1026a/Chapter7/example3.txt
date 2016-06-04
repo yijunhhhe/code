@@ -1,0 +1,4 @@
+$45.00,biscuits,5
+$34.34,table salt,3
+$1,245.00,ipad,2
+$434.34,fitbit,3
