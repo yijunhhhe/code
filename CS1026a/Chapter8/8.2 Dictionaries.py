@@ -16,6 +16,7 @@ contacts["Fred"] = 123456789  # modifying
 favoriteColors = {}
 favoriteColors["Juliet"] = "Blue"   # adding
 favoriteColors["Ted"] = "Yellow"
+favoriteColors["Ted"].append("Hey")
 
 
 # Removing Items

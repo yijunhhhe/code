@@ -1,68 +1,18 @@
-import sys
-# Name: Yijun He Student Number:
+class student:
+    def __init__(self,name):
+        self._name = name
+        self._totalScore = 0
+        self._count = 0
 
-# Receive the input of keyword file's name
-#keywordFileName = input("Please enter the name of keyword file: ")
+    def getName(self):
+        return  self._name
 
-# Make sure keywords file exists
-try:
-    keywordFile = open("keywords.txt", "r")
-except IOError as fileNameError:
-    print(fileNameError)
-    sys.exit(0)
+    def addQuiz(self,score):
+        self._totalScore = self._totalScore + score
+        self._count = self._count + 1
 
-# Read lines from Keywords file and store it in list
-line = keywordFile.readline()
-keywordList = []
-while line != "":
-    wordList = line.split(",")
-    for word in wordList:
-        word = word.rstrip()
-        keywordList.append(word)
-    line = keywordFile.readline()
+    def getTotalScore(self):
+        return self._totalScore
 
-# Obtain the name of the tweets file
-#tweetFileName = input("Please enter the name of the tweets file: ")
-
-# Make sure tweets file exists
-try:
-    tweetFile = open("2.txt","r")
-except IOError as fileNameError:
-    print(fileNameError)
-    sys.exit(0)
-
-# Define different time zone as lists
-pacific = []
-mountain = []
-central = []
-eastern = []
-
-# Read line from tweets file
-line = tweetFile.readline()
-while line != "":
-    tweetsWordList = line.split(" ")
-    numOfKeywords = 0
-    sentimentValues = 0
-    # Obtain every word in the tweets word list
-    for word in tweetsWordList:
-        print(word)
-        word = word.rstrip()
-        print(word)
-        # find out if there are any words from tweets line in keywords list
-        if word in keywordList:
-            # Avoid Value Error
-            try:
-                indexOfSentimentWord = keywordList.index(word)
-                sentimentValues = sentimentValues + int(keywordList[indexOfSentimentWord + 1])
-                numOfKeywords = numOfKeywords + 1
-            except ValueError:
-                pass
-    # Define latitude and longitude and pass value into it
-    latitude = float(tweetsWordList[0].strip("[,"))
-    longitude = float(tweetsWordList[1].strip("]"))
-    print(tweetsWordList)
-    print(sentimentValues)
-
-
-    line = tweetFile.readline()
-
+    def getAverageScore(self):
+        return self._totalScore/self._count
