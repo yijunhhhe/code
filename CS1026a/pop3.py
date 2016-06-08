@@ -1,5 +1,5 @@
 def combineWord(first, second, eachLine):
-    if first in eachLine:
+    if first in eachLine and second in eachLine:
         index = eachLine.index(first)
         eachLine.remove(second)
         eachLine[index] = first + " " + second
@@ -10,13 +10,10 @@ cityDic = {}
 for i in range(1,6):
     cityDic[i] = list()
 for eachLine in popFile:
-    eachLine = eachLine.split()
-    combineWord("British", "Columbia", eachLine)
-    if "Quebec" in eachLine:
-        index = eachLine.index("Quebec")
-        eachLine.remove("Quebec")
-        eachLine[index] = "Quebec" + " " + "City"
+    eachLine = eachLine.rstrip().split()
 
+    combineWord("British", "Columbia", eachLine)
+    combineWord("Quebec", "City", eachLine)
     combineWord("Nova", "Scotia", eachLine)
     combineWord("regional", "municipality", eachLine)
     print(eachLine)
