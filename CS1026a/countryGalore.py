@@ -22,4 +22,24 @@ class Country:
     def save(self):
         outputFile = ("outputfile.txt", "w")
         popDensity = self.getPopDensity()
-        outputFile.write("{}|{}|{}|{}|{}".format(self._name, self._continent, self._pop, popDensity ))
+        outputFile.write("{}|{}|{}|{}|{}".format(self._name, self._continent, self._pop, popDensity))
+
+
+class CountryCatalogue:
+    def __init__(self, filename):
+        file = open(filename, "r")
+        self._cDic = {}
+        self._catalogue = set()
+        for line in file:
+            line = file.rstrip().split(",")
+            if line[0] == "Country":
+                continue
+            self._cDic[line[0]] = line[1]
+            self._catalogue.add(line[0])
+
+    def addCountry(self, name, population, area, continent):
+        if name in self._cDic:
+            
+
+
+
