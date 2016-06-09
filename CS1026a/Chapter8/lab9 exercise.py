@@ -7,8 +7,7 @@ inputFile = open("rawdata.txt", "r")
 dataDic = {}
 letterDic = {}
 letterSet = set()
-key = []
-value = []
+
 number1 = ""
 alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"
             "O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -19,9 +18,6 @@ for line in inputFile:
     line[1] = line[1].strip()
     number=line[1].replace(",","")
     dataDic[line[0]]=int(number)
-
-for i in range(len(key)):
-    dataDic[key[i]] = value[i]
 
 for letter in alphabet:
     for word in dataDic:
@@ -38,8 +34,6 @@ elif len(countryName) > 1:
         print(dataDic[countryName])
     else:
         print("Does not exiSt")
-print(letterDic)
-print(dataDic)
 
 
 

@@ -27,7 +27,8 @@ class Country:
 
 class CountryCatalogue:
     def __init__(self, filename):
-        file = open(filename, "r")
+        file = open("continent.txt","r")
+        datafile = open(filename, "r")
         self._cDic = {}
         self._catalogue = set()
         for line in file:
@@ -39,7 +40,7 @@ class CountryCatalogue:
 
     def addCountry(self, name, population, area, continent):
         if name in self._cDic:
-            
+
 
 
 
