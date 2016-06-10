@@ -1,0 +1,8 @@
+class VotingMachine :
+   def __init__(self) :
+   def voteDemocrat(self) :
+   def voteRepublican(self) :
+   def getTallies(self) :
+   def reset(self) :
+   def getTotal(self) :
+   def getWinner(self) :

@@ -1,0 +1,22 @@
+from course import Course
+
+b = 'boy'
+print(b)
+c1 = Course('CS1026B')
+print(c1)
+c1.addStudent('Kemi Ola', 1001)
+print('Expected: Kemi Ola')
+c1.printStudentsByName()
+print('Expected: 0')
+c1.printStudentsByScore()
+c1.updateStudentScore(1001, 99.5)
+c1.printStudentsByScore()
+print('Expected: 99.5')
+c1.addStudent('Paul Peters', 1002)
+c1.updateStudentScore(1002, 56)
+print('Expected:77.75 ')
+print(c1.getAverageScore())
+print('Expected: 56')
+print(c1.getMinimumScore())
+print('Expected: 99.5')
+print(c1.searchForStudent(1001))
