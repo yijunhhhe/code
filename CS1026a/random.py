@@ -1,15 +1,15 @@
-class Car:
-    def __init__(self, fuel):
-        self._fuelEfficiency = 50
-        self._fuel = fuel
-        self._distance = 0
+class City:
 
-    def addGas(self,fuel):
-        self._fuel = self._fuel + fuel
+    def __init__(self, n, p, t, la, pop):
+        self._name = n
+        self._province = p
+        self._type = t
+        self._landArea = la
+        self._population = pop
 
-    def drive(self, distance):
-        self._distance = distance
-        self.fuel = self._fuel - (self._distance/self._fuelEfficiency)
+cityDic = dict()
+inFile = open("pop3.txt", "r")
+line = inFile.split()
+for eachWord in line:
+    cityDic[line[1]] = line
 
-    def getGasLevel(self):
-        return self._fuel

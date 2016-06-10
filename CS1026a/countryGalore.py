@@ -39,7 +39,9 @@ class CountryCatalogue:
             self._catalogue.add(line[0])
 
     def addCountry(self, name, population, area, continent):
-        if name in self._cDic:
+        if name in self._catalogue:
+            print("This country has already existed")
+
 
 
 
