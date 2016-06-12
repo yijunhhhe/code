@@ -13,11 +13,7 @@ class Country:
     def getContinent(self):
         return self._continent
     def getPopDensity(self):
-        if "," in str(self._pop):
-            self._pop = str(self._pop).replace(",","")
-        if "," in str(self._area):
-            self._area = str(self._area).replace(",","")
-        popDensity = float(self._pop) / float(self._area)
+        popDensity = self._pop / self._area
         return popDensity
     def setPopulation(self,pop):
         self._pop = pop
@@ -42,6 +38,8 @@ class CountryCatalogue:
             line = line.rstrip().split("|")
             if line[0] == "Country":
                 continue
+            line[1] = int(line[1].replace(",",""))
+            line[2] = float(line[2].replace(",",""))
             country = Country(line[0], line[1], line[2], self._cDic[line[0]])
             self._catalogue.add(country)
 
@@ -51,11 +49,11 @@ class CountryCatalogue:
             print("This country has already existed, please reenter a new one")
             name = input("Please enter the country name: ")
         population = int(input("Please enter the population: "))
-        continent = input("Please enter the continenet: ")
+        continent = input("Please enter the continent: ")
         area = float(input("Please enter the area: "))
         country = Country(name, population, area, continent)
         self._catalogue.add(country)
-        self._cDic[country] = continent
+        self._cDic[country.getName()] = continent
         if country in self._catalogue:
             print("The country has been successfully added to catalogue")
         else:
@@ -63,15 +61,16 @@ class CountryCatalogue:
 
     def deleteCountry(self):
         name = input("Please enter the country you want to delete: ")
-        Isdelete = False
+        isDelete = False
         for country in self._catalogue:
             if name == country.getName():
                 self._catalogue.discard(country)
-                self._cDic.pop(country)
-                Isdelete = True
-                print("The country has been deleted")
+                self._cDic.pop(country.getName())
+                if country not in self._catalogue:
+                    isDelete = True
+                    print("The country has been deleted")
                 break
-        if Isdelete == False:
+        if isDelete == False:
             print("The country has not been deleted because it doesn't exist")
 
     def saveCountryCatalogue(self, filename):
@@ -79,25 +78,24 @@ class CountryCatalogue:
         catalogue = sorted(self._catalogue, key = Country.getName)
         for country in catalogue:
             country.save(outputFile)
-        print("Catalogue has been stored in outpuFile.txt")
+        print("Catalogue has been stored in output.txt")
         outputFile.close()
 
     def findCountry(self):
         name = input("Please enter the country name you want to find: ")
-        Isfind = False
+        isFind = False
         for country in self._catalogue:
             if name == country.getName():
                 print(country._name, "Population:",country._pop, "Area:", country._area, "Continenet:", country._continent)
-                Isfind =True
+                isFind = True
                 break
-        if Isfind == False:
+        if isFind == False:
             print("The country you find does not exist")
-
 
     def filterCountriesByContinent(self):
         continenet = input("Please enter the continent name that you want to filter: ")
         for country in self._catalogue:
-            if country._continent == continenet:
+            if country.getContinent() == continenet:
                 print(country._name)
 
     def printCountryCatalogue(self):
@@ -109,36 +107,33 @@ class CountryCatalogue:
         countryName = input("Please enter the country name that you want to set a new population : ")
         newPopulation = int(input("Please enter the new population: "))
         for country in self._catalogue:
-            if countryName == country._name:
-                country._pop = newPopulation
-                print(country._name, country._pop)
+            if countryName == country.getName():
+                country.setPopulation(newPopulation)
+                print(country.getName(), country.getPopulation())
 
     def findCountryWithLargestPop(self):
         largest = 0
         for country in self._catalogue:
-            country._pop = str(country._pop).replace(",","")
-            if int(country._pop) > largest:
-                largest = int(country._pop)
-                largestName = country._name
+            if country.getPopulation() > largest:
+                largest = country.getPopulation()
+                largestName = country.getName()
         print("{} have the largest population {} among all the countries".format(largestName,largest))
 
     def findCountryWithSmallestArea(self):
-        smallest = 10000000000000
+        smallest = 10000000000000000
         smallestName = ""
         for country in self._catalogue:
-            country._area = str(country._area).replace(",","")
-            if float(country._area) < smallest:
-                smallest = float(country._area)
-                smallestName = country._name
+            if country.getArea() < smallest:
+                smallest = country.getArea()
+                smallestName = country.getName()
         print("{} have the smallest area {} among all the countries".format(smallestName,smallest))
 
     def filterCountriesByPopDensity(self):
         lowerBound = int(input("Please enter the lower bound of population density range: "))
         upperBound = int(input("Please enter the upper bound of population density range: "))
         for country in self._catalogue:
-            country._pop = int(str(country._pop).replace(",",""))
-            if country._pop > lowerBound and country._pop < upperBound:
-                print(country._name)
+            if country.getPopulation() > lowerBound and country.getPopulation() < upperBound:
+                print(country.getName())
 
     def findMostPopulousContinent(self):
         asia = []
@@ -147,16 +142,16 @@ class CountryCatalogue:
         africa = []
         europe = []
         for country in self._catalogue:
-            if country._continent == "Asia":
-                asia.append(int(str(country._pop).replace(",","")))
-            elif country._continent == "North America":
-                northA.append(int(str(country._pop).replace(",","")))
-            elif country._continent == "South America":
-                southA.append(int(str(country._pop).replace(",","")))
-            elif country._continent == "Africa":
-                africa.append(int(str(country._pop).replace(",","")))
+            if country.getContinent() == "Asia":
+                asia.append(country.getPopulation())
+            elif country.getContinent() == "North America":
+                northA.append(country.getPopulation())
+            elif country.getContinent() == "South America":
+                southA.append(country.getPopulation())
+            elif country.getContinent() == "Africa":
+                africa.append(country.getPopulation())
             else:
-                europe.append(int(str(country._pop).replace(",","")))
+                europe.append(country.getPopulation())
         mostPopularContinent = [asia, "Asia", northA, "North America", southA, "South America", africa, "Africa", europe, "Europe"]
         largest = 0
         for i in range(0,len(mostPopularContinent),2):

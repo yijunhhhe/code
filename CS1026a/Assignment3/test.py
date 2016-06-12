@@ -12,7 +12,7 @@ population = canada.getPopulation()
 print(population)
 
 catalogue = CountryCatalogue("data.txt")
-catalogue.findCountry()
+catalogue.filterCountriesByContinent()
 catalogue.saveCountryCatalogue("outputfile.txt")
 
 
