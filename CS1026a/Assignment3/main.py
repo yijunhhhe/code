@@ -1,4 +1,4 @@
-from countryGalore import *
+from Assignment3.countryGalore import *
 def main():
     cc = CountryCatalogue('data.txt')
     cc.findCountry()
