@@ -25,11 +25,11 @@ class Country:
 
 class CountryCatalogue:
     def __init__(self, filename):
-        file = open("continent.txt","r")
+        continentFile = open("continent.txt","r")
         datafile = open(filename, "r")
         self._cDic = {}
         self._catalogue = set()
-        for line in file:
+        for line in continentFile:
             line = line.rstrip().split(",")
             if line[0] == "Country":
                 continue
@@ -86,16 +86,16 @@ class CountryCatalogue:
         isFind = False
         for country in self._catalogue:
             if name == country.getName():
-                print(country._name, "Population:",country._pop, "Area:", country._area, "Continenet:", country._continent)
+                print(country.getName(), "Population:",country.getPopulation(), "Area:", country.getArea(), "Continenet:", country.getContinent())
                 isFind = True
                 break
         if isFind == False:
             print("The country you find does not exist")
 
     def filterCountriesByContinent(self):
-        continenet = input("Please enter the continent name that you want to filter: ")
+        continent = input("Please enter the continent name that you want to filter: ")
         for country in self._catalogue:
-            if country.getContinent() == continenet:
+            if country.getContinent() == continent:
                 print(country._name)
 
     def printCountryCatalogue(self):

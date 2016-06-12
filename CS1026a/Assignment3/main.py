@@ -1,7 +1,9 @@
 from Assignment3.countryGalore import *
 def main():
     cc = CountryCatalogue('data.txt')
-
+    cc.findCountry()
+    cc.addCountry()
+    cc.findCountry()
     cc.deleteCountry()
     cc.findCountry()
     cc.findCountryWithSmallestArea()
