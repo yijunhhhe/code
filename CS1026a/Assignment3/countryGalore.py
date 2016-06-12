@@ -27,8 +27,6 @@ class Country:
         popDensity = self.getPopDensity()
         outputFile.write("{}|{}|{}|{}\n".format(self._name, self._continent, self._pop, popDensity))
 
-
-
 class CountryCatalogue:
     def __init__(self, filename):
         file = open("continent.txt","r")
@@ -48,7 +46,7 @@ class CountryCatalogue:
             self._catalogue.add(country)
 
     def addCountry(self):
-        name = input("Please enter the country name: ")
+        name = input("Please enter the country name you want to add: ")
         while name in self._cDic:
             print("This country has already existed, please reenter a new one")
             name = input("Please enter the country name: ")
@@ -62,33 +60,39 @@ class CountryCatalogue:
             print("The country has been successfully added to catalogue")
         else:
             print("The country has not been added to catalogue")
+
     def deleteCountry(self):
         name = input("Please enter the country you want to delete: ")
+        Isdelete = False
         for country in self._catalogue:
-            if name == country._name:
+            if name == country.getName():
                 self._catalogue.discard(country)
+                self._cDic.pop(country)
+                Isdelete = True
                 print("The country has been deleted")
                 break
-        else:
-            print("The country has not been deleted because it doesn't exeist")
+        if Isdelete == False:
+            print("The country has not been deleted because it doesn't exist")
 
     def saveCountryCatalogue(self, filename):
         outputFile = open(filename, "w")
         catalogue = sorted(self._catalogue, key = Country.getName)
-        print(catalogue)
         for country in catalogue:
             country.save(outputFile)
-        print("Catalogue havs been stored in outpuFile.txt")
+        print("Catalogue has been stored in outpuFile.txt")
         outputFile.close()
 
     def findCountry(self):
         name = input("Please enter the country name you want to find: ")
+        Isfind = False
         for country in self._catalogue:
-            if name == country._name:
+            if name == country.getName():
                 print(country._name, "Population:",country._pop, "Area:", country._area, "Continenet:", country._continent)
+                Isfind =True
                 break
-            else:
-                print("The country you find does not exist")
+        if Isfind == False:
+            print("The country you find does not exist")
+
 
     def filterCountriesByContinent(self):
         continenet = input("Please enter the continent name that you want to filter: ")
@@ -102,7 +106,7 @@ class CountryCatalogue:
             print(country)
 
     def setPopulationOfASelectedCountry(self):
-        countryName = input("Please enter the new country name: ")
+        countryName = input("Please enter the country name that you want to set a new population : ")
         newPopulation = int(input("Please enter the new population: "))
         for country in self._catalogue:
             if countryName == country._name:
