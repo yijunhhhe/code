@@ -27,7 +27,7 @@ categoryDictionary = {
    #FINISH FILLING THIS
 }
 
-print(popDictionary)
+print(popDictionary.values())
 # Find out specific information about Canadian citiesRead queries from the user and respond to them.
 category = (input("Enter a category ( 0 to print all information, 1 for name, 2 for province, 3 for type\n,"
                      " 4 for land area, 5 for population in 2011) or entry a city name to print all "

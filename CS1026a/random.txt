@@ -1,103 +1,15 @@
-Logo
-PySchools Python Quick Reference Guide
-LISTS
-
-«  Repetitions with while loops   ::   Contents   ::   Strings  »
-Lists
-
-List is one of the most commonly used data structure in Python. It contains a list of items separated by commas and enclosed within square brackets. A list can be created easily as shown below:
-
-num_list = [3, 6, 2, 10]                            # only numbers
-word_list = ['hello', 'python', 'programming']      # only string
-mixed_list = ['a', 3.5, 6, 'b', 'c']                # combination of string and numbers
-Accessing Values in a List
-
-Use square bracket to access the value in a list. The first item in a list is accessed with index 0. See examples below:
-
-num_list = [4, 12, 'a', 'b', 5.0]
-
-first_item = num_list[0]            # value: 4, first item in the list
-
-last_item = num_list[4]             # value: 5.0, last item in the list
-
-last_item = num_list[-1]            # use -1 to access elements starting from the right
-
-first_two_items = num_list[0:2]     # value: [4, 12] Note: This is called list slicing
-
-items_in_middle = num_list[1:-1]    # value: [12, 'a', 'b']
-
-invalid_index = num_list[5]         # error, list is 0-indexed
-Updating a List
-
-You can change the value of existing items, add new item or remove existing item(s) from a list.
-
->>> a = [1, 2, 3, 4]
->>> a[1] = 5            # change the 2nd item from 2 to 5
->>> a
-[1, 5, 3, 4]
->>> a.remove(3)         # remove the number 3
->>> a
-[1, 5, 4]
->>> a.pop()             # remove last item
-4
->>> a
-[1, 5]
->>> a.append(10)        # add the number 10 to the end of the list
->>> a
-[1, 5, 10]
-Other useful list operations
-
-Python includes a few useful list functions and methods.
-
->>> x = [2, 6, 3, 1, 10, 5]
->>> len(x)                      # get number of items in the list
-6
->>> x.sort()                    # sort the list in ascending order
->>> x
-[1, 2, 3, 5, 6, 10]
->>> x.reverse()                 # reverse the order of the elements in the list
->>> x
-[10, 6, 5, 3, 2, 1]
->>> max(x)                      # get the maximum value in the list
-10
->>> min(x)                      # get the minimum value in the list
-1
->>> x.count(5)                  # get the number of 5 in the list
-1
-List Comprehensions
-
-List comprehension offers a concise way of creating a new list from existing sequences.
-
->>> x= [1, 2, 3, 4, 5 ]
->>> y = [ i*3 for i in x ] # create a new list with each element multiplied by 3.
->>> y
-[3, 6, 9, 12, 15]
->>> even = [ i for i in range(1, 10) if i%2==0 ] # create a list with even numbers
->>> even
-[2, 4, 6, 8]
-Summary of list operations
-
-Each example in the table below assumes a list ‘s’ with initial elements 1 to 5, and a list ‘t’ with elements ‘a’ and ‘b’, when applicable.
-
->>> s = [1, 2, 3, 4, 5 ]
->>> t = ['a', 'b' ]
-Operation	Explanation	Example	Output on s
-s[i] = x	item i of s is replaced by x	s[2] = 0	[1, 2, 0, 4, 5]
-s[i:j] = t	slice of s from i to j is replaced by the contents of the iterable t	s[1:5] = t	[1, ‘a’, ‘b’]
-del s[i:j]	same as s[i:j] = []	del s[2:4]	[1, 2, 5]
-s[i:j:k] = t	the elements of s[i:j:k] are replaced by those of t with step k	s[1:4:2] = t	[1, ‘a’, 3, ‘b’, 5]
-del s[i:j:k]	removes the elements of s[i:j:k] from the list with step k	del s[0:5:2]	[2, 4]
-s.append(x)	same as s[len(s):len(s)] = [x]	s.append(t)	[1, 2, 3, 4, 5, [‘a’, ‘b’]]
-s.extend(x)	same as s[len(s):len(s)] = x	s.extend(t)	[1, 2, 3, 4, 5, ‘a’, ‘b’]
-s.count(x)	return number of occurrences of x in s	s[0] = 3; s.count(3)	2
-s.index(x[,i[,j]])	return smallest k such that s[k] == x and i<=k<j	s.index(3)	2
-s.insert(i, x)	same as s[i:i] = [x]	s.insert(2, 6)	[1, 2, 6, 3, 4, 5]
-s.pop([i])	same as x = s[i]; del s[i]; return x	s.pop(2)	3
-s.remove(x)	same as del s[s.index(x)]	s.remove(3)	[1, 2, 4, 5]
-s.reverse()	reverses the items of s in place	s.reverse()	[5, 4, 3, 2, 1]
-s.sort([cmp[, key[, reverse ]]])	sort the items of s in place	s[0] = 4; s.sort()	[2, 3, 4, 4, 5]
-See also
-Ready for some practice? Test your understanding at PySchools: Lists.
-«  Repetitions with while loops   ::   Contents   ::   Strings  »
-
-© Copyright 2010-2014, PySchools Admin. Created using Sphinx 1.2.2.
+Country|Population|Area
+China|1,339,190,000|9,596,960.00
+United States of America|309,975,000|9,629,091.00
+Brazil|193,364,000|8,511,965.00
+Japan|127,380,000|377,835.00
+Canada|34,207,000|9,976,140.00
+Indonesia|260,581,100|1,809,590.97
+Nigeria|186,987,563|912,134.45
+Mexico|128,632,004|1,969,230.76
+Egypt|93,383,574|1,000,000.00
+France|64,668,129|541,656.76
+Italy|59,801,004|300,000.00
+South Africa|54,978,907|1,222,222.22
+South Korea|50,503,933|98,076.92
+Colombia|48,654,392|1,090,909.09

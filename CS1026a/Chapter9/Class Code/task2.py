@@ -3,6 +3,7 @@ data = dict()
 
 for line in file:
     line = line.rsplit("\t")
+    print(line)
     line[2] = line[2].strip('\n')
     line[2] = line[2].strip('$')
     line[2] = line[2].strip(' ')
