@@ -27,7 +27,7 @@ class Student :
       if(len(self._listOfCourses) > 0):
          print('The student is enrolled in the following courses: ')
          for c in self._listOfCourses:
-            print(c, end= ', ')
+            print(c, end= "")
          print()
       else:
          print('The student is not enrolled in any courses')
