@@ -1,7 +1,13 @@
 
 public class Random {
 	
-	public static final class City{
+	public static void get(){
+		Random random = new Random();
+		City city = random.new City("London", "City", 500, 460.0, "Ontario");
+		System.out.println(city.getArea());
+	}	
+
+	public class City{
 		String name;
 		String cityType;
 		double population;
@@ -34,10 +40,12 @@ public class Random {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Random random = new Random();
 		City city ;
-		city = new City( "London", "City", 450.0, 460.0, "Ontario");
+		city = random.new City( "London", "City", 450.0, 460.0, "Ontario");
 		System.out.println(city);
 		System.out.println(city.getPopulation());
+		get();
 		
 		dd();
 	}
