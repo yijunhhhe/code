@@ -1,53 +1,32 @@
+import java.io.*;
 
 public class Random {
 	
-	public static void get(){
-		Random random = new Random();
-		City city = random.new City("London", "City", 500, 460.0, "Ontario");
-		System.out.println(city.getArea());
-	}	
-
-	public class City{
-		String name;
-		String cityType;
-		double population;
-		double area;
-		String province;
-		public City(String name, String cT, double pop, double area, String pro){
-			this.name = name;
-			this.cityType = cT;
-			this.population = pop;
-			this.area = area;
-			this.province = pro;
-		}
-		
-		public double getPopulation(){
-			return population;
-		}
-		public String getName(){
-			return name;
-		}
-		public double getArea(){
-			return area;
-		}
-		
-		
-		
-	}
 	
-	public static void dd(){
-		System.out.println("Hey");
-	}
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		Random random = new Random();
-		City city ;
-		city = random.new City( "London", "City", 450.0, 460.0, "Ontario");
-		System.out.println(city);
-		System.out.println(city.getPopulation());
-		get();
+		String fileName = "C:/Users/tambe/Desktop/code/CS1027/src/aa.txt";
+		FileReader fileReader = new FileReader(fileName);
+		BufferedReader textReader = new BufferedReader(new FileReader(fileName));
+		BufferedWriter textWriter = new BufferedWriter(new FileWriter(fileName));
+		// Write 
+		textWriter.write("what the fuck\n");
+		textWriter.write("woooo");
+		textWriter.close();
+		// Read
+		String[] arrays = new String[4];
+		for( int i = 0; i < 4; i++){
+			arrays[i] = textReader.readLine();
+			System.out.println(arrays[i]);
+		}
 		
-		dd();
+		
+		
+		
+		
+		
+		
 	}
 
 }
