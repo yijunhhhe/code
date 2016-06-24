@@ -1,6 +1,6 @@
 import java.io.*;
 
-public class Random {
+public class ReadandWritefile {
 	
 	
 	
@@ -10,10 +10,12 @@ public class Random {
 		FileReader fileReader = new FileReader(fileName);
 		BufferedReader textReader = new BufferedReader(new FileReader(fileName));
 		BufferedWriter textWriter = new BufferedWriter(new FileWriter(fileName));
+		
 		// Write 
 		textWriter.write("what the fuck\n");
 		textWriter.write("woooo");
 		textWriter.close();
+		
 		// Read
 		String[] arrays = new String[4];
 		for( int i = 0; i < 4; i++){
