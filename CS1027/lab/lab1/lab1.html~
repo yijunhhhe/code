@@ -1,0 +1,189 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 1</b></h2>
+</CENTER>
+
+
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+        <ul>
+        <li> Read through the lab instructions <it> before </it> coming to the lab.
+        <li> Do the pre-lab preparation.
+        <li> Bring a <it>printed</it> copy of the lab instructions to the lab.
+        </ul>
+
+<h3>Overview and preparation</h3>
+
+<p>We use Eclipse as our Integrated Development Environment, available on
+the Computer Science Department machines in the Undergrad Labs used as
+the First Year Teaching Environment (MC 8, 10, 230, 235).</p>
+
+<ul>
+<li>You can download Eclipse for your own computer from the 
+  <a href="http://www.eclipse.org/downloads/">Eclipse Website</a></li>
+<li>If you have not used Eclipse, you may want to read the Workbench
+  User Guide in the on-line help which comes with Eclipse. In
+  particular, the section Working with Projects, Folders, and Files,
+  under Tasks is useful for the completion of this lab.</li>
+</ul>
+
+<p>Upon completion of this lab, you should be able to do the following in the Eclipse environment:
+<ul>
+<li>Create a new project  containing new source files.</li>
+<li>Create a new project from existing source files.</li>
+<li>Submit an assignment (Assignment 0)</li>
+</ul></p>
+
+<h3>Suggested project organization</h3>
+
+<p>
+In Integrated Development Environments such as Eclipse, Netbeans,
+VisualStudio, etc. we need to create a <b>project</b> in order to run an
+application program. Most applications consist of multiple files. A
+project contains all the information about the program, such as a list
+of program files (source files, class files), IDE settings, and
+properties. In CS1027, you will create a new project in Eclipse for
+every application that you wish to run.
+</p>
+
+<p>Create a folder called (for example) Eclipse or CS1027b to hold all
+your Eclipse projects for this course. This will contain the project
+files themselves. The Java source files may be in this folder also (as
+in Exercises 1 and 3), or in some other (external) folder (as in
+Exercise 2).</p>
+
+<h3>Exercise 1: Getting Started with Eclipse</h3>
+
+<ul>
+<li>
+Log onto GAUL using the username and password you had for
+CS1025/1026. (If you are new to the department, your username is the
+same as your uwo username and the password should have been emailed to
+you. If not, ask the TA what the “guest” username and password are,
+for you to use temporarily.)
+</li>
+<li>
+Start up Eclipse. You may get the Welcome window first; close it and
+you will see the Java workbench. The editor area is in the middle.
+</li>
+<li>
+You will be asked to select a workspace location; the workspace is the
+area in which all your Eclipse projects will be stored. Create a
+folder Z:\Eclipse or Z:\CS1027b or something like that for your
+workspace folder.
+</li>
+<li>
+We will start by creating a new Java project in Eclipse. Select <b>File</b>,
+<b>New</b>, <b>Java Project</b> from the top menu. Enter the project
+name: HelloWorld. Note that the default selections are "Create new
+project in workspace" and "Create separate folders for sources and
+class files". (Leave these as they are.) Click on <b>Next</b> at the
+bottom of the window, and then <b>Finish</b> at the bottom of the next
+window. You should now see your HelloWorld project in the Package
+Explorer window.
+</li>
+<li>
+To create a new program, select <b>File</b>, <b>New</b>, <b>Class</b>
+from the top menu. Enter the class name HelloWorld. Since this will
+have a main method, you may select this option from the method stubs
+that you would like to have created. Click on <b>Finish</b>.
+</li>
+<li>Type what you need so that the following program is in the editor window:
+<pre>
+public class HelloWorld {
+    public static void main(String[] args) {
+         System.out.println("Hello World!");
+    }
+}
+</pre>
+<li>
+Add line numbers to the source view by right clicking on the editor
+window and selecting <b>Preferences</b>.  Follow the link to the <b>Text Editors</b>
+page that is in the first sentence (or in the lefthand section, select
+General, Editors, Text Editors). In the Text Editors page, check <b>Show
+line numbers</b>. Click on <b>OK</b>.
+</li>
+<li>
+Run your program by selecting <b>Run</b>, <b>Run As</b>, <b>Java
+Application</b> from the top menu. There should now be a Console
+window at the bottom of the workbench in which Hello World! appears as
+the output of the program.
+</li>
+<li>
+To close your project, right click on the HelloWorld project icon in
+the Package Explorer window, and select <b>Close Project</b>.
+</li>
+<li>
+To reopen the project again, right click on the HelloWorld project
+icon and select <b>Open Project</b>. Close the project again.
+</li>
+</ul>
+
+<h3>Exercise 2: Creating a New Project from Existing Source Files</h3>
+
+<p>In this exercise, you will create a new project to run the sample
+Social Networking application whose files are posted on the 
+<a href="http://www.csd.uwo.ca/courses/CS1027b/code.html">sample
+code</a> Section (Topic 1) of the CS1027 Course web page. (We will not
+concern ourselves with what this code does at present; you will merely
+use the files to practice this part of the Lab.) </p>
+
+<ul>
+<li>Create a new folder in your disk area called SocialNetworking.
+Download the .java files for Topic 1
+from <a href="http://www.csd.uwo.ca/courses/CS1027b/code.html">here</a>,
+and store them into that folder.</li>
+<li>In Eclipse, open a new project called SocialNetworking.</li>
+<li>Click on <b>Create project from existing source</b> and specify the
+directory you saved the source files into. Click <b>Next</b> and then <b>Finish</b>.</li>
+<li>Go to the Package Explorer window and select the SocialNetworking project.</li>
+<li>You will get a compiler error from <code>MyFriends.java</code>, 
+since the provided code does not yet have the <code>getNumFriends()</code> method defined in <code>SocialNetwork.java</code>. 
+You can do either of two things to fix this:
+<ul>
+<li>Comment out the offending line of code in <code>MyFriends.java</code></li>
+<li>Add <code>getNumFriends()</code> method to <code>SocialNetwork.java</code> (we will be doing this in Lab 2 in any case)</li>
+</ul>
+</li>
+<li>From the top menu, select <b>Run</b> in order to run the application. The results should be visible in the Console window.</li>
+<li>The output of the program should be a list of contacts and their email addresses.</li>
+<li>Close the project.</li>
+</ul>
+
+<h3>Exercise 3: Creating a New Java Program</h3>
+
+<ul>
+<li>Create a new project called MyName in your  project folder.</li>
+<li>Type a new class called MyName that has a <code>main</code> method that displays your name and email address on the screen.</code>
+<li>Run your MyName program and make sure it works correctly.</li>
+<li>Close the project.</li>
+</ul>
+
+<h3>Exercise 4: Submitting Assignment 0</h3>
+
+Submit Assignment 0 online according to the following
+instructions. Successful submission of this "assignment" will
+constitute part of your Lab 1 mark. Also, since it will give you
+practice in online submission of CS1027 assignments, there will be no
+allowances made for not being able to do so for Assignments 1 to 4.
+
+<ul>
+<li>Create a folder <code>Z:\CS1027Asn0</code> (note that the folder CS1027Asn0 must be in your home directory on the Z drive).</li>
+<li>Put a copy of your source file <code>MyName.java</code> into that folder.</li>
+<li>Click the submit button on the desktop and answer all questions to submit the files 
+ (For course, enter 1027b, and for assignment# enter 0).</li>
+</ul>
+ 
+
+</body>
+</html>
+

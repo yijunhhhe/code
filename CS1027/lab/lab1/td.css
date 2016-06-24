@@ -1,0 +1,76 @@
+DIV.center {
+	TEXT-ALIGN: center
+}
+DIV.note {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; MARGIN-BOTTOM: 1em; PADDING-BOTTOM: 5px; PADDING-TOP: 5px
+}
+H1 {
+	TEXT-ALIGN: center
+}
+H2 {
+	CLEAR: all
+}
+UNKNOWN {
+	MARGIN-LEFT: 1em
+}
+
+@media Print    
+{
+HTML {
+	COLOR: black
+}
+BODY {
+	COLOR: black
+}
+A {
+	COLOR: black
+}
+
+}
+
+@media Screen, Tv, Handheld, Projection, Tty    
+{
+DIV.note {
+	BORDER-RIGHT: red 1px solid; BORDER-TOP: red 1px solid; BORDER-LEFT: red 1px solid; BORDER-BOTTOM: red 1px solid; BACKGROUND-COLOR: #fff0f0
+}
+DIV.question {
+	BORDER-RIGHT: green 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: green 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; MARGIN: 20px; BORDER-LEFT: green 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: green 1px solid; BACKGROUND-COLOR: #dfffcf; TEXT-ALIGN: justify
+}
+TT.shell {
+	COLOR: blue
+}
+PRE.shell {
+	COLOR: blue
+}
+HTML {
+	BACKGROUND-COLOR: white
+}
+BODY {
+	BACKGROUND-COLOR: white
+}
+H1 {
+	BORDER-RIGHT: #555aaa 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #555aaa 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 5px; BORDER-LEFT: #555aaa 1px solid; COLOR: #000070; PADDING-TOP: 5px; BORDER-BOTTOM: #555aaa 1px solid
+}
+H2 {
+	PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; COLOR: #000070; PADDING-TOP: 3px; BACKGROUND-COLOR: #eaafff
+}
+H3 {
+	PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; COLOR: #000180; PADDING-TOP: 2px; BACKGROUND-COLOR: #fccfff
+}
+H4 {
+	COLOR: #800000
+}
+TT {
+	COLOR: #402000; BACKGROUND-COLOR: #fff0e0
+}
+PRE {
+	COLOR: #402000; BACKGROUND-COLOR: #fff0e0
+}
+CODE {
+	COLOR: #402000; BACKGROUND-COLOR: #fff0e0
+}
+VAR {
+	COLOR: red
+}
+
+}

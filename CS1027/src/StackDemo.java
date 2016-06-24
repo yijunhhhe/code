@@ -23,11 +23,11 @@ public class StackDemo {
 		showPush(st, 42);
 		showPush(st, 66);
 	    showPush(st, 99);
-	    
-	    boolean isEmpty = st.empty();
-	    Integer a = (Integer)st.peek();
-	    Integer b = (Integer)st.search(42);
-	    System.out.println(isEmpty);
+	    System.out.println(st.toString());
+	    boolean isEmpty = st.empty();   // empty
+	    Integer a = (Integer)st.peek();  // peek 
+	    Integer b = (Integer)st.search(42);  // search
+	    System.out.println(isEmpty);   
 	    System.out.println(a );
 	    System.out.println(b);
 	    showPop(st);
