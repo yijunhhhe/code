@@ -9,6 +9,10 @@ public class CountryCatalogue {
 	Set<String> continent = new HashSet<String>();
 	Map<String,String> cDic = new HashMap<String,String>();
 	
+	public Country[] getCatalogue(){
+		return catalogue;
+	}
+	
 	public CountryCatalogue(String dFileN, String cFileN){
 		String dataFileName = dFileN;
 		String continentFileName = cFileN;
@@ -29,9 +33,7 @@ public class CountryCatalogue {
 		
 		firstLine = readCountry.readLine();
 		while ((line = readCountry.readLine()) != null){			
-			lineInfo = line.split(",");
-			//for (String each: lineInfo){
-			//System.out.println(each);}				
+			lineInfo = line.split(",");			
 			Country country = new Country(lineInfo[0], Integer.parseInt(lineInfo[1]), Double.parseDouble(lineInfo[2]), cDic.get(lineInfo[0]) );
 			addCatalogue(country);
 		}
@@ -44,8 +46,7 @@ public class CountryCatalogue {
 		catalogue[numberOfCountries] = country;
 		numberOfCountries++;
 		if (numberOfCountries >= catalogue.length){
-			expandCapacity(catalogue);
-			
+			expandCapacity(catalogue);			
 		}
 	}
 	
@@ -59,18 +60,22 @@ public class CountryCatalogue {
 	
 	public void addCountry(Country country){
 		addCatalogue(country);
-		System.out.println(String.format("The country I add: %s is located in "
-				+ "%s has a population of %d, an area of %f, \n"
+		if (Arrays.asList(catalogue).contains(country)){
+			System.out.println(String.format("The country I add: %s is located in "
+				+ "%s has a population of %d,\n an area of %f, "
 				+ "and has a population density of %f", 
 				country.getName(), country.getContinent(), country.getPopulation(), country.getArea(), country.getPopDensity()));
 		System.out.println("");
+		} else {
+			System.out.println(country.getName() + "is not added successfully.");
+		}
 		if (!continent.contains(country.getContinent())){
 			continent.add(country.getContinent());
 		}
 		cDic.put(country.getName(), country.getContinent());
 	}
 	
-	public Country getCountry(int index){
+	public Country getCountry(int index){		
 		return catalogue[index];
 	}
 	
@@ -97,13 +102,10 @@ public class CountryCatalogue {
 		for (int i = 0; i < numberOfCountries; i++){
 			if (catalogue[i].getName().equals(countryName)){
 				return i;
-				
 			} 			
-		}
-	
-		System.out.println("The country was not found.");
+		}	
+		System.out.println(countryName + " was not found.");
 		System.out.println("");			
-		
 		return NOT_FOUND;
 	}
 	
@@ -114,10 +116,7 @@ public class CountryCatalogue {
 			catalogue[found] = catalogue[numberOfCountries-1];
 			catalogue[numberOfCountries] = null;
 			numberOfCountries--;
-			System.out.println("The country has been successfully removed.");
-			System.out.println("");
-		}else {
-			System.out.println("This country doesn't exist.");
+			System.out.println(countryName + " has been successfully removed.");
 			System.out.println("");
 		}
 	}
@@ -127,11 +126,9 @@ public class CountryCatalogue {
 		if (found != -1){
 			catalogue[found].setPopulation(newPop);	
 			System.out.println("the country has been successfully altered");
+			System.out.println("new population of " + countryName + "is: " + catalogue[found].getPopulation());
 			System.out.println("");
-		} else {
-			System.out.println("the country does not exist.");
-			System.out.println("");
-		}
+		} 
 	}
 	
 	public void saveCountryCatalogue(String fileName){
@@ -152,8 +149,6 @@ public class CountryCatalogue {
 				index = i;
 			}
 		}
-		System.out.println("Country with the largest population: " + catalogue[index].getName() + " with population of " + catalogue[index].getPopulation());
-		System.out.println("");
 		return index;
 	}
 	
@@ -166,17 +161,15 @@ public class CountryCatalogue {
 				index = i;
 			}			
 		}
-		System.out.println("Country with the smallest Area: " + catalogue[index].getName() + " with population of " + catalogue[index].getPopulation());
-		System.out.println("");
 		return index;
 	}
 	
-	public void printCountriesFileterDensity(int low, int high){
+	public void printCountriesFilterDensity(int low, int high){
 		System.out.println("Countries with a population density between " + low + " and " + high);
 		for (int i = 0; i < numberOfCountries; i++){
 			if (catalogue[i].getPopDensity()> low && catalogue[i].getPopDensity() < high){
-				System.out.println(catalogue[i]);
-				System.out.println("has a population density of " + catalogue[i].getPopDensity());
+				System.out.println("          " + catalogue[i]);
+				System.out.println("          has a population density of " + catalogue[i].getPopDensity());
 				System.out.println("");
 			}
 		}

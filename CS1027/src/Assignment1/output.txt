@@ -1,7 +1,7 @@
 China, Asia, 1339190000, 9596960.000000
 United States of America, North America, 309975000, 9629091.000000
 Brazil, South America, 193364000, 8511965.000000
-England, North America, 123456789, 34658833.000000
+England, Europe, 123456789, 34658833.000000
 Canada, North America, 34207000, 9976140.000000
 Indonesia, Asia, 260581100, 1809590.970000
 Nigeria, Africa, 173600000, 912134.450000
