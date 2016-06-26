@@ -6,7 +6,7 @@ public class ReadandWritefile {
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-		String fileName = "C:/Users/tambe/Desktop/code/CS1027/src/aa.txt";
+		String fileName = "C:/Users/Ted/Desktop/code/CS1027/src/aa.txt";
 		FileReader fileReader = new FileReader(fileName);
 		BufferedReader textReader = new BufferedReader(new FileReader(fileName));
 		BufferedWriter textWriter = new BufferedWriter(new FileWriter(fileName));
