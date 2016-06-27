@@ -9,9 +9,6 @@ public class CountryCatalogue {
 	Set<String> continent = new HashSet<String>();
 	Map<String,String> cDic = new HashMap<String,String>();
 	
-	public Country[] getCatalogue(){
-		return catalogue;
-	}
 	
 	public CountryCatalogue(String dFileN, String cFileN){
 		String dataFileName = dFileN;
@@ -211,6 +208,10 @@ public class CountryCatalogue {
 		for(int d : arrayList)
 		    sum += d;
 		return sum;		
+	}
+	
+	public Country[] getCatalogue(){
+		return catalogue;
 	}
 
 	public static void main(String[] args) {
