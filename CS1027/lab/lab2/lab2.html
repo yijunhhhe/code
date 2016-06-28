@@ -1,0 +1,139 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 2</b></h2>
+</CENTER>
+
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+        <ul>
+        <li> Read through the lab instructions <it> before </it> coming to the lab.
+        <li> Do the pre-lab preparation.
+        </ul>
+
+<h3>Overview and preparation</h3>
+
+<p>We work with our own classes, and Javadoc. Upon completion of this
+lab, you should be able to do the following:
+<ul>
+<li>Use a test harness to aid in testing methods of a class.</li>
+<li>Add to the classes defined in Topic 1 of our lecture notes.</li>
+<li>Create Java class documentation using the tool Javadoc.</li>
+<li>Use the classes defined in Topic 1 of our lecture notes in an application.</li>
+</ul>
+</p>
+
+<p>Make sure you show the result(s) of each Exercise to your TA, to get your marks for the lab.
+Starting from this lab, please submit the .java files your wrote on <a href="https://owl.uwo.ca/">owl</a>.</p>
+
+
+<p><b>Preparation:</b> make sure you understand the parts of a class
+definition: instance variable declaration, constructor definition,
+method definition. Read this introduction to <a href="javadoc.html">Javadoc</a>.</p>
+
+
+
+<h3>Exercise 1: Adding a Test Harness to the Person class</h3>
+
+
+<p>To make testing easier for a person who is writing code for a class,
+she can add a main method that acts as a "test harness". A test
+harness is a main method that consists of calls to methods that you
+wish to test, and is conventionally the last method of the class. If
+you have a test harness, you do not need to have a separate
+application program in order to test your class: the test harness is
+part of the class you are testing. In this part of the Lab, you will
+get some experience in writing a test harness.</p>
+
+
+<p><ul>
+<li>Open the <code>SocialNetworking</code> project that you created in Lab 1.</li>
+<li>We have provided code for a test harness for the <code>Person</code> class, in the file 
+<a href="PersonTestHarness.txt">PersonTestHarness.txt</a>. It creates a <code>Person</code> object 
+(this tests the constructor) and prints the result of invoking most of the methods of the class. Add this main method to your <code>Person.java</code>.</li>
+<li>Run only <code>Person.java</code>; it will execute the test harness (<code>main</code> method).</li>
+
+<li>Now add code to the test harness to test the <code>equals</code>
+method: it should print something like "same friend" if the two
+friends are the same according to the <code>equals</code> method documentation, or
+print "not same friend" if they are not the same. (Hint: you can use
+friend1 and friend2 as friends who are not the same, but for thorough
+testing, you should also create a third friend who has the same name
+as one of the first two.) </li>
+<li> Run <code>Person.java</code> again to execute the
+changed test harness.</li>
+</ul>
+Make sure you show your results to the TA.</p>
+ 
+<h3>Exercise 2: Adding to the SocialNetwork Class</h3>
+
+<p>
+<ul>
+<li>Add the following two (easy) methods to the <code>SocialNetwork</code> class:
+<ul>
+<li><code>getNumFriends()</code>: it will return the number of friends in the list.</li>
+<li><code>clearFriends()</code>: it will remove all friends from the list. (Hint: this can be implemented with just one assignment statement. The <code>SocialNetwork</code> class has an instance variable called <code>numFriends</code> that holds the current number of persons in the list of friends. If you set this to 0 (zero), you do not need to clear out the array <code>numFriends</code> - why not?)</li>
+</ul>
+</li>
+<li>
+Add a test harness to <code>SocialNetwork.java</code> to test your new methods by doing the following. (Note that this is not a complete test of the class; it will just give you a start in using a test harness in the Lab. You can add more tests later if you wish.)
+<ul>
+<li>Create a <code>SocialNetwork</code> object (Hint: see page 40 of the Topic 1 lecture notes)</li>
+<li>Add three friends to your social network</li>
+<li>Print the contents of your list of friends</li>
+<li>Test the <code>getNumFriends</code> method</li>
+<li>Test the <code>clearFriends</code> method (how will you show that this worked?)</li>
+</ul>
+</li>
+</ul>
+Make sure you show your results to the TA.</p>
+
+<h3>Exercise 3: Using Javadoc comments</h3>
+
+<p>
+<ul>
+<li>
+Note that the existing comments in <code>Person.java</code> and <code>SocialNetwork.java</code> are Javadoc comments. (You should have read the Introduction to Javadoc document before this Lab.) Add Javadoc comments for the new methods you added to <code>SocialNetwork.java</code> in Exercise 2.
+</li>
+<li>
+Set up Eclipse to generate documentation for the classes in this Lab, from your Javadoc comments:
+<ul>
+<li>Go to Project, Generate Javadoc, ...</li>
+<li>For the Javadoc command, click on the Configure button and locate the "javadoc.exe" program.  This will be in the "bin" directory of the Java Development Kit installation on the machine. This could for instance be  <b>C:\Program Files\Java\jdk1.5.0_03\bin\javadoc.exe</b></li>
+<li>Check the project for which you want to generate the documentation.</li>
+<li>Ensure that <b>Public</b> and <b>Use Standard Doclet</b> are selected, and Destination is the default (Z:\{your workspace}\{your project}\doc) and click <b>Finish</b>.</li>
+<li>Javadoc generates a tree of html files which comprise the documentation for the program.  You should see these in the Package Explorer in Eclipse under the doc directory.  You can view them in Eclipse by double clicking (start with index.html).</li>
+</ul>
+</li>
+</ul>
+Make sure you show your results to the TA.
+</p>
+
+<h3>Exercise 4: Using the SocialNetwork Class in an Application</h3>
+
+<p>
+<ul>
+<li>You will now use the <code>SocialNetwork</code> class in an application program. Run the application <code>MyFriends.java</code> that is part of your SocialNetworking project from Lab 1. It is a simple application program that creates and prints a list of friends. (For simplicity, there is no file I/O in this application at present.)</li>
+<li>Add statements to MyFriends to do the following:
+<ul>
+<li>
+Call the <code>remove()</code> method to remove one of the friends whose name is already in the list, and report whether or not the remove was successful.  Make sure you include the name of the person you removed in the message to the user, for example: "Mickey Mouse was removed successfully."</li>
+<li>Call the <code>remove()</code> method for a person whose name is not in the list of friends, and report whether or not the remove was successful.</code></li>
+<li>Print the revised list of contacts.</li>
+</ul>
+</li>
+</ul>
+Make sure you show your results to the TA, and submit on owl.
+</p>
+
+</body>
+</html>
+
