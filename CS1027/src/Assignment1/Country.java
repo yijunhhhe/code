@@ -40,8 +40,8 @@ public class Country {
 	
 	public void writeToFile(ThingToWriteFile write){
 		
-		write.writeLine(String.format("%s, %s, %d, %f", name, continent, population, area));
-		write.close();
+		write.writeLine(String.format("%s, %s, %d, %f\n", name, continent, population, area));
+		
 				
 	}
 	
