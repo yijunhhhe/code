@@ -1,0 +1,122 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 3</b></h2>
+</CENTER>
+
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+        <ul>
+        <li> Read through the lab instructions <it> before </it> coming to the lab.
+        <li> Do the pre-lab preparation.
+        </ul>
+
+<h3>Overview and preparation</h3>
+
+Upon completion of this lab, you should be able to do the following:
+<ul>
+<li>Implement a subclass of an existing class</li>
+<li>Understand usage of the keyword super in inheritance</li>
+<li>Understand the concepts of overriding methods, polymorphism, and dynamic binding</li>
+</ul>
+
+<p>For preparation, Review Topic 4 of the lecture notes (the
+keyword <code>super</code>, overriding methods, superclass variables,
+polymorphism, dynamic binding). You might find it helpful to bring the
+Topic 4 notes to the Lab, to help you in answering the questions of
+Exercise 2.  Make sure you understand the code for
+the <code>BankAccount</code> class and
+the <code>CheckingAccount</code> class.</p>
+
+<h3>Exercise 1: Creating another subclass of BankAccount</h3>
+
+<p>
+Download the <a href="BankAccount.java">BankAccount</a> class and
+the <a href="CheckingAccount.java">CheckingAccount</a> classes, and create a new project for these files.
+</p>
+
+<p>Create a new <code>SavingsAccount</code> class in your project,
+which extends the <code>BankAccount</code> class. It will contain an
+additional attribute besides the one inherited from
+the <code>BankAccount</code> class: the interest rate (a double) for a
+savings account, which might vary from one account to another. It will
+also contain the following methods:
+<ul>
+<li>a constructor with two parameters <code>public SavingsAccount(double initialAmount, double rate)</code></li>
+<li>an accessor method for the interest rate</li>
+<li><code>public void calculateInterest()</code>, which calculates one month's interest and adds the amount to the balance</li>
+<li><code>public String toString()</code>, which returns a string representation of the account's attributes (balance and interest rate)</li>
+</ul>
+Question: If the interest rate is fixed for all savings accounts, how would this change the design of this class?
+</p>
+
+<h3>Exercise 2: Experimenting with inheritance</h3>
+
+<p>
+Download the file 
+<a href="http://www.csd.uwo.ca/courses/CS1027b/labs/lab3/TestBankAccounts.java">
+TestBankAccounts.java</a> and add it to your project. It has a main method that
+so far only creates some bank account objects of the three types
+<code>BankAccount</code>, <code>CheckingAccount</code>,
+and <code>SavingsAccount</code>.
+</p>
+
+<p>
+In each step of this exercise, you will be adding statements to the
+main method, running it after each addition. Answer the questions at
+each step.  If there is a compilation error, make sure you remove (or
+comment out) the offending statement before advancing to the next step
+of this exercise.
+<ul>
+<li>
+Which statements(s) of the provided code demonstrate overriding?
+</li>
+<li>
+Add the statement <code>bacc0 = chacc1</code>; which makes the
+BankAccount variable <code>bacc0</code> reference the CheckingAccount
+object referenced by <code>chacc1</code>, and compile.  Was this
+legal?  Why?
+</li>
+<li>
+Now add the
+statement <code>System.out.println(bacc0.toString());</code>. Compile
+and run.  Which <code>toString</code> method did it use, the one from the
+<code>BankAccount</code> class or the one from the <code>CheckingAccount</code> class? Why?
+</li>
+<li>
+Add a statement to make the variable <code>chacc1</code> reference
+the <code>BankAccount</code> object referenced by <code>bacc1</code>, and compile.
+Was this legal? Why not?
+</li>
+<li>
+Add the statement <code>BankAccount bacc2 = new CheckingAccount(200.0);</code>.
+Now suppose we want the variable <code>chacc1</code> to reference this new object: add the statement <code>chacc1 = bacc2;</code>
+and compile.
+Was this legal? Why not? Fix it so that it compiles and runs, using casting.
+</li>
+<li>
+Add statements to invoke <code>deductFees</code> on objects of all three types (i.e. on variables <code>bacc1</code>, <code>chacc1</code> and <code>sacc1</code>) and compile. On which type of objects was this legal? Why?
+</li>
+<li>Which step(s) of this exercise demonstrated polymorphism or dynamic binding?</li>
+<li>
+Add the statement <code>chacc1.deposit(100.0);</code>
+Your program should compile and run.
+Now make the following change to <code>CheckingAccount.java</code>: in the code for the deposit method, change
+<code>super.deposit(amount);</code> to <code>deposit(amount);</code>
+Compile and run. 
+What was the runtime error, and why do you think it happened?
+</li>
+</ul>
+</p>
+
+</body>
+</html>
+
