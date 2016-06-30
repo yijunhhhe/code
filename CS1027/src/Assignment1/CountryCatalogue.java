@@ -1,6 +1,12 @@
 package Assignment1;
 import java.util.*;
 
+/**
+ * 
+ * class represents a catalogue as a list of different countries
+ * @author Yijun He
+ *
+ */
 public class CountryCatalogue {
 	private final int DEFAULT_SIZE = 5;
 	private final int NOT_FOUND = -1;
@@ -9,7 +15,9 @@ public class CountryCatalogue {
 	Set<String> continent = new HashSet<String>();
 	Map<String,String> cDic = new HashMap<String,String>();
 	
-	
+	/*
+	 * constructor read two file and store the country information in  
+	 */
 	public CountryCatalogue(String dFileN, String cFileN){
 		String dataFileName = dFileN;
 		String continentFileName = cFileN;
