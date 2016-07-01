@@ -21,7 +21,7 @@ public class TestBankAccounts {
         System.out.println(chacc1.toString());
                           
         SavingsAccount sacc1 = new SavingsAccount(1000.0, 1.0);
-        
+        sacc1.calculateInterest();
         System.out.println(sacc1.toString()); 
         
         //-------------------------------------------------------
@@ -40,6 +40,7 @@ public class TestBankAccounts {
         
         BankAccount bacc2 = new CheckingAccount(200.0);
         chacc1 = (CheckingAccount) bacc2;
+        System.out.println(chacc1);
         //5 Illegal because chacc1 and bacc2 is different type of references
         	
         //bacc1.deductFees();
@@ -49,7 +50,7 @@ public class TestBankAccounts {
         
         //7 second and third step
         
-        chacc1.deposit(100.0);
+        //chacc1.deposit(100.0);
         //8 it throws an exception because it doesnt have super keyword to invoke the deposit method in bankaccount class
     }
     
