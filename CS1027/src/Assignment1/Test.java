@@ -24,7 +24,8 @@ public class Test {
 		canada.printCountryDetails();*/
 		
 		
-		CountryCatalogue catalogue = new CountryCatalogue("a","a");
+		CountryCatalogue catalogue = new CountryCatalogue("C:\\Users\\Ted\\Desktop\\code\\CS1027\\src\\Assignment1\\data.txt",
+				"C:\\Users\\Ted\\Desktop\\code\\CS1027\\src\\Assignment1\\continent.txt");
 		Country england = new Country("England", 43000000, 34658833, "Europe");
 		
 		// test addCountry method

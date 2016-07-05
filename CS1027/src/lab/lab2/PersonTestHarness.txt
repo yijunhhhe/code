@@ -1,0 +1,19 @@
+/**
+ * test harness
+ */
+
+public static void main (String[] args) {
+	// create a friend
+	Person friend1 = new Person("Mickey", "Mouse", "");
+	friend1.setEmail("mickey@uwo.ca");
+	System.out.println(friend1);
+
+	// test accessor methods
+	System.out.println(friend1.getName());
+	System.out.println(friend1.getEmail());
+
+	// create a friend without email
+	Person friend2 = new Person("Minnie", "Mouse", "");
+	System.out.println(friend2);
+
+}

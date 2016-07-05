@@ -1,0 +1,121 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Javadoc</b></h2>
+</CENTER>
+
+<p>
+Javadoc is a tool to help produce documentation of Java classes and
+their methods, in the format that we see when viewing the Java API
+documentation. It is a standard for documenting such things as the
+author of the code, method parameters, and method return values.
+<ul>
+<li> It reads the comments in the program that are in Javadoc format
+and produces HTML-based documentation on the Java classes it is given,
+i.e. documentation that can be shown in a Web browser.
+</li>
+<li>It automatically links related classes (for example, other classes
+that are used in declarations or parameters to methods)</li>
+</ul>
+For a complete description of the Javadoc tool, see
+<a href="http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html">here</a> . There is far too much detail there
+for our purposes, but go to the link to Javadoc Reference Pages, and
+read the section Documentation Comments for more details than are
+given below.
+</a>
+</p>
+
+
+<h3>Javadoc Comments</h3>
+
+<p>
+<ul>
+<li>A Javadoc comment begins with the <code>/**</code> marker and ends with the <code>*/</code> marker, and encloses a description of the class or method.</li>
+<li>A Javadoc comment must appear immediately before the declaration for any class, interface, constructor, method, or field that it is describing.</li>
+<li>Make sure you put any import statements before the first Javadoc comment.</li>
+<li>Class comments: should explain the purpose of the class and who wrote it.</li>
+<li>Method comments: should give a brief description of the purpose of the method, what the parameters are, and what is returned. The purpose of the method should be one sentence (this goes into a summary table).</li>
+</ul>
+</p>
+
+<h3>Javadoc Tags</h3>
+
+<p>Javadoc tags are used within the comments, for documenting important aspects of a class or method. They must start at the beginning of a line. Here are the most common tags:    
+<ul>
+<li><b>@param</b> used to describe a parameter for a method (use a separate @param line for each parameter)</li>
+<li><b>@return</b> used to describe the value returned from a method (used only when return type is not void)</li>
+<li><b>@author</b> used to identify the author of the code</li>
+</ul>
+</p>
+
+<h3>Example</h3>
+
+<pre>
+/**
+ * This class represents a rectangular shape.
+ * @author CS1027 Lecture Notes
+ */
+ 
+public class Rectangle {
+ 
+/**
+ * length of rectangle
+ */
+  private int length;
+/**
+ * width of rectangle
+ */
+  private int width;
+ 
+/**
+ * Constructor creates object with given length and width
+ * @param len length of rectangle
+ * @param wid width of rectangle
+ */
+  public Rectangle(int len, int wid) {
+    length = len;
+    width = wid;
+  }
+/**
+ * Accessor method to get length of rectangle
+ * @return length of rectangle
+ */
+  public int getLength() {
+    return length;
+  }
+}
+</pre>
+
+<h3>HTML Tags</h3>
+
+<p>Since Javadoc outputs HTML-based documentation, you can also put HTML tags within the comments, such as:
+<pre>
+&lt;b&gt;text to be bolded&lt;/b&gt;
+&lt;p&gt;the beginning of a new paragraph
+</pre>
+Example:
+<pre>
+/**
+ *  This is a &lt;b&gt;Javadoc&lt;/b&gt; comment.
+ */
+</pre>
+</p>
+
+<h3>Running Javadoc</h3>
+
+<p>
+In Eclipse, select Project, Generate Javadoc  to create the HTML documentation based on the Javadoc comments of all classes within the project.
+This can be displayed in a browser such as Internet Explorer, with index.html as the starting point.
+</p>
+
+</body>
+</html>
+
+
