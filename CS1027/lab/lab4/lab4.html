@@ -1,0 +1,144 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 3</b></h2>
+</CENTER>
+
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+        <ul>
+        <li> Read through the lab instructions <it> before </it> coming to the lab.
+        <li> Do the pre-lab preparation.
+        </ul>
+
+<h3>Overview and preparation</h3>
+
+<p> We will work with exceptions and practice debugging 
+For preparation, review the lecture notes on Java exceptions.
+</p>
+
+<p>Don't forget to submit your work on owl.</p>
+
+<h3>Exercise 1: Experimenting with Exceptions</h3>
+
+
+<p>In this exercise, you will experiment with some examples of code
+that generates exceptions and answer some questions on the
+examples. Download the Exception Examples 1, 2, 6, 7, 8, 9, 10, 11,
+and 12 from the Sample Code section of the course webpage.  It may be
+simplest if you put them all in one project, and run them separately
+as you progress through this Exercise. Note that some of them will
+(purposely) not compile.</p>
+
+<ul>
+
+<li>Run examples 1 and 2. They both have an "unchecked exception": one
+that you don’t explicitly need to check for in the code, but will be
+generated if the conditions for the exception occur.
+<ul>
+<li>What is the condition that generates the exception in each of these programs?</li>
+<li>Which of the two examples allows the program to continue even if the exception is generated?</li>
+</ul>
+</li>
+
+<li>Run examples 6 and 7. They both have the same exception, but
+notice that the try-catch statement is in a different method in each
+of the examples. This is an example of propagating the exception, as
+mentioned in the exception lecture notes. (Notice also that these
+examples show how print statements can be included to allow us to see
+where we are in the execution of the program, when the variable debug
+has the value true.)
+<ul>
+<li>What is the statement that actually generates the exception in example 6?  In example 7?</li>
+<li>In example 7, does execution of the method change continue after the statement that generated the exception? </li>
+<li>What happens of you change the statement containing <code>debug = true</code> to <code>debug = false</code> ?</li>
+</ul>
+</li>
+
+<li>Now run example 8. Notice that both the <code>main</code> method
+and the method change have a try-catch statement. In which method(s)
+is the exception actually caught in this case?</li>
+
+<li>Run example 12. This is an example that contains multiple possible
+exceptions. Try running it for an illegal input such as the letter A,
+and then for a legal integer input such as the value 6. When handling
+an exception, how many of each of the following clauses can be present
+in a try/catch statement?
+<ul>
+<li>number of try clauses possible?</li>
+<li>number of catch clauses possible?</li>
+</ul>
+</li>
+
+<li>Try to run example 9. Note that it does not compile. This is an
+example of an exception that is known as a "checked" exception, and
+the method header must state that it is throwing an exception.  Now
+run examples 10 and 11 using illegal input such as abc. What
+is the "checked" exception that is generated in examples 9, 10 and
+11?</li>
+
+<li>Add a loop to example 11, that asks the user for another
+input for as long as the input is not valid. You will need to use a
+while loop and a boolean variable that tells the program whether a
+valid input has yet been entered.</li>
+</ul>
+
+<h3>Exercise 2</h3>
+
+<p>
+Eclipse comes with a debugger which allows you to single-step through your code one statement at a time, trace variables, stop the execution at any time, and find errors in this way. In this exercise you will use the debugger to trace through the program 
+<a href="DebuggingExercise.java">DebuggingExercise.java</a>.
+</p>
+
+<ul>
+<li>Download the file <code>DebuggingExercise.java</code> and create a
+new project</li>
+
+<li>Open <code>DebuggingExercise.java</code> and try to run it. You
+will see that it compiles but does not run.</li>
+
+<li>Check that you have a Debug button in the top right corner of your
+Eclipse window, beside the Java button. If you don't,
+select <b>Window</b> - <b>Open Perspective</b> - <b>Debug</b>.</li>
+
+<li>Click on the <b>Debug</b> button to change to the Debug view. You
+can, at any time, switch back to the Java view by clicking on the Java
+button in the top right corner.</li>
+
+<li>In the window displaying your code, you will now add a breakpoint
+to the line <code>for (int j=1; j<=6; j++)</code>.  You do this by
+right-clicking in this line at the very left, and then clicking <b>Toggle
+Breakpoint</b>. You can remove a breakpoint at any time in the exact
+same way.</li>
+
+<li>When executing your program, the debugger will stop every time
+this line is reached.  Run your program in the debug mode by clicking
+on <b>Run</b> - <b>Debug</b> (alternatively, F11).
+
+The variables will appear in the variable window and the program stops
+upon reaching the breakpoint for the first time.  Now you can use F5
+to execute your program one instruction at a time (called
+single-stepping) or F8 to continue with the execution until the next
+breakpoint is reached (in a loop the next breakpoint might be the same
+one again). Note how the variables <code>i</code> and <code>j</code>
+are changing in the Variables window.
+
+While you are doing this, expand some of the rows and columns of the
+array <code>testArray</code> in the Variables window, to see how the
+variables are changing.
+</li>
+
+<li> Fix the error when you find it.</li>
+ </ul>
+
+</body>
+</html>
+
