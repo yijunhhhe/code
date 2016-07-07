@@ -1,0 +1,64 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 5</b></h2>
+</CENTER>
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+        <ul>
+        <li> Read through the lab instructions <it> before </it> coming to the lab.
+        <li> Do the pre-lab preparation.
+        </ul>
+
+<h3>Overview and preparation</h3>
+
+<p>Upon completion of this lab, you should be able to understand how
+nodes work in a linked list, using the <code>LinearNode</code> class
+and understand the linked list implementation of the Stack ADT.</p>
+
+<p>Pre-lab Preparation:
+<ul>
+<li>Review Topic 6: Make sure you understand how the class <code>LinearNode</code> represents a node of a linked list.</li>
+<li>Review Topic 7: Make sure you understand what a stack looks like, when implemented as a linked list.</li>
+</ul></p>
+
+<h3>Exercise 1: Building a Linked List, revisited</h3>
+
+<ul>
+<li>Download the file <a href="http://www.csd.uwo.ca/courses/CS1027b/code/BuildLinkedList.java">BuildLinkedList.java</a> for
+the <a href="http://www.csd.uwo.ca/courses/CS1027b/code-cs1027b.html">course webpage</a>. It contains a main method that builds a linked list of integers from 1 to 10. In order to run this program, you will also need to download LinearNode.java.</li>
+<li>
+Run the program and see what is printed out as the contents of the linked list.
+</li>
+<li>What would happen if you changed the first for loop to  <code>for (int i = 1; i <= 10; i++) </code>, and why?
+If you are not sure, try making the change and see what happens.</li>
+<li>
+The code that traverses the linked list and displays each data item works specifically for (and only for) a linked list with exactly ten nodes. In order to make the code more general, we can use the fact that the last node always points to nothing, we can use a while loop that stops looping when the next field of the current node is null. Make this change to your code: change the for loop to a while loop that will work for any linked list. Run your BuildLinkedList program to make sure it still displays the contents of the linked list correctly.</li>
+</ul>
+
+<h3>Exercise 2: Completing the LinkedStack class</h3>
+
+<ul>
+<li>
+Download LinkedStack.java and fill in the missing code in the methods <code>isEmpty</code>, <code>size</code>, and <code>toString</code>. (Note that the String representation returned by toString should contain all the items in the stack.)
+The <code>isEmpty</code> and <code>size</code> methods are trivial; model your <code>toString</code> method on the code you wrote in Exercise 1,  using a loop to traverse the linked list. (The main difference is that you are forming a string rather than printing each data item.) 
+</li>
+<li>
+Download all the files you will need in order to use LinkedStack.java
+</li>
+<li>
+Download the code in the file <a href="TestLinkedStack.txt">TestLinkedStack.txt</a> and cut and paste this at the end of your <code>LinkedStack</code> class as a test harness (as explained in Lab 2). Run this as the <code>main</code> method, to show that your new methods in <code>LinkedStack</code> work correctly.
+</li>
+
+</ul>
+</body>
+</html>
+
