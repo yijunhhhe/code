@@ -17,10 +17,17 @@ public class MazeSolver {
 		
 		Hexagon startHexagon = new Hexagon(Hexagon.HexType.START);
 		
-		ArrayStack stack = new ArrayStack();
-		stack.push(startHexagon);
+		ArrayStack<Hexagon> stack = new ArrayStack<Hexagon>();
+		stack.push(maze.getStart());
+		hexagonOnStack++;
 		
 		int stepCounter = 0, hexagonOnStack = 0;
+		Hexagon popHexagon = null;
+		while(!stack.isEmpty()){
+			popHexagon = stack.pop();
+			stepCounter++;
+			hexagonOnStack--;
+		}
 		
 			
 	}
