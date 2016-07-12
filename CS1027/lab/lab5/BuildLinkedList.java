@@ -12,7 +12,8 @@ public class BuildLinkedList {
 		LinearNode<Integer> head = null;	//create empty linked list
 		LinearNode<Integer> intNode;
 		
-		for (int i = 10; i >= 1; i--)
+		for (int i = 10; i >= 1; i--) 
+		//for(int i = 1; i <= 10; i++) // because it starts from 1 and every time the number will be added to the beginning 
 		{
 			// create a new node for i
 			intNode = new LinearNode<Integer>(new Integer(i));
@@ -25,11 +26,15 @@ public class BuildLinkedList {
 		// current will point to each successive node, starting at the first node
 		
 		LinearNode<Integer> current = head; 
-		for (int i = 1; i <= 10; i++)
+		while(current.getNext() != null)
 		{
 			System.out.println(current.getElement());
 			current = current.getNext();
+			if (current.getNext() == null){
+				System.out.println(current.getElement());
+			}
 		}
+			
 	}
 
 }

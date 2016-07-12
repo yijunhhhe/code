@@ -124,9 +124,9 @@ public class CircularArrayQueue<T> implements QueueADT<T>
   public String toString()
   {
 	  String result = "";
-	  for (int i = front; i < count; i++){
-		  if(queue[front]!=null){
-			  result = result + queue[front].toString() + "\n";		
+	  for (int i = front; i < rear; i++){
+		  if(queue[i]!=null){
+			  result = result + queue[i].toString() + "\n";				 
 		  }		 
 	  }
 	  return result;

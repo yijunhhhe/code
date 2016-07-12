@@ -7,7 +7,7 @@
 ** 
 */ 
 
-public class TestCAQ
+public class TestCAQ1
 {
   // test isEmpty method
   
@@ -91,16 +91,15 @@ public class TestCAQ
 
     //
     //  Empty queue tests
-    //  second parameter is expected value in the if statement 
-    //  if the first parameter doesnt equal to second one it will return different fail 
-    t_isEmpty(first,true);  
+    //
+    t_isEmpty(first,true);
     t_size(first,0);
     t_toString(first,"");
 
     //
     //  Add some items of differing types -- every third item is an Integer 
     //  instead of being a Float
-    //  Yes because the type of queue is object
+    //
     for (i = 0; i < 15; i++)
     {
       if (i % 3 == 0)
@@ -118,7 +117,7 @@ public class TestCAQ
     //
     t_isEmpty(first,false);
     t_size(first,15);
-    t_toString(first,"0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n");
+    t_toString(first,"0\n10.0\n20.0\n3\n40.0\n50.0\n6\n70.0\n80.0\n9\n100.0\n110.0\n12\n130.0\n140.0\n");
 
     //
     //  Remove 2 elements and make sure they are correct
@@ -131,9 +130,9 @@ public class TestCAQ
     //
     t_isEmpty(first,false);
     t_size(first,13);
-    t_toString(first,"0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n");
+    t_toString(first,"20.0\n3\n40.0\n50.0\n6\n70.0\n80.0\n9\n100.0\n110.0\n12\n130.0\n140.0\n");
 
-    first.enqueue("A"); // object type
+    first.enqueue("A");
     first.enqueue("S");
     first.enqueue("D");
     first.enqueue("F");
@@ -143,7 +142,7 @@ public class TestCAQ
     //
     t_isEmpty(first,false);
     t_size(first,17);
-    t_toString(first,"0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n0\n");
+    t_toString(first,"20.0\n3\n40.0\n50.0\n6\n70.0\n80.0\n9\n100.0\n110.0\n12\n130.0\n140.0\nA\nS\nD\nF\n");
 
     //
     //  Remove 10 items from the queue
