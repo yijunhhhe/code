@@ -13,8 +13,9 @@ public class MazeSolver {
 	public static void main(String[] args) throws IllegalArgumentException, UnknownMazeCharacterException, FileNotFoundException, IOException {
 		// TODO Auto-generated method stub
 		// check if no file name then throw an exception
-		if(args.length<1){
-			throw new IllegalArgumentException("No Maze Provided");
+		try{
+			if(args.length<1){
+				throw new IllegalArgumentException("No Maze Provided");
 		}
 		/*
 		 * get the maze file name 
@@ -29,7 +30,7 @@ public class MazeSolver {
 		/*
 		 * initialize a hexagon for the starting point of the maze
 		 */
-		Hexagon startHexagon = new Hexagon(Hexagon.HexType.START);
+		Hexagon startHexagon = maze.getStart();
 		
 		/*
 		 * define a stepCounter and a hexagonOnstack variable
@@ -52,7 +53,7 @@ public class MazeSolver {
 		ArrayStack<Hexagon> stack = new ArrayStack<Hexagon>();
 		
 		// push starthexagon into stack 
-		stack.push(maze.getStart());
+		stack.push(startHexagon);
 		hexagonOnStack++;		
 		
 		while(!stack.isEmpty()){
@@ -81,17 +82,18 @@ public class MazeSolver {
 			popHexagon.setProcessed();
 			// repaint the maze
 			maze.repaint();
-		}
+		}		
 		// if the end is found then print information
 		if(popHexagon.isEnd()){
 			System.out.println("We find the end");
-		}else {
+		} else {
 			System.out.println("We didn't find the end");
 		}
+		// print the stepCounter and how many hexagon on the stack
 		System.out.println("Number of steps that it took to finish: " + stepCounter);
 		System.out.println("Number of tiles still on the stack: " + hexagonOnStack);
-	}
-
-	
-	
+		}catch(IllegalArgumentException e ){  // catch the exception
+			System.out.println("No Maze Provided");
+		}	
+	}	
 }
