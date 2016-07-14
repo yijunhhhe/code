@@ -1,0 +1,3 @@
+for the maze1 when the hexagon reach to the one on the top left of the end of the hexagon, the ending hexagon is being pushed into the stack but not the last one. Therefore, when stack pop the last element, it will be one next to the ending hexagon. Because the ending hexagon has been pushed already, then it will wait until the stack pop the ending hexagon and the ending hexagon will be processed.
+
+for the maze3, at the begining, when the start hexagon is pushed in to stack, its neighbors is being checked. However, the checking order is from the right to the left side, so the last element on the stack will be the one next to ending hexagon. Therefore, the ending hexagon will wait until the stack pop the ending hexagon and then it will be processed.

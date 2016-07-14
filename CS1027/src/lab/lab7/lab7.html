@@ -1,0 +1,135 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 7</b></h2>
+</CENTER>
+
+<h3>General lab instructions to help labs run smoothly</h3>
+<ul>
+  <li> Read through the lab instructions <it> before </it> coming to the lab.
+  <li> Do the pre-lab preparation.
+</ul>
+
+<p>Upon completion of this lab, you should be able to understand
+recursive thinking in the solution of a simple problem.</p>
+
+
+<h3>Overview and preparation</h3>
+
+<p>
+Upon completion of this lab, you should be able to understand the
+linked list and circular array implementations of the Queue ADT.  For
+prepation, review Topic 9 of the lecture notes (make sure you
+understand what a queue looks like when implemented as a linked list,
+as an array, and as a circular array).
+</p>
+
+<h3>Exercise 0</h3>
+
+<p>You should be able to answer the following questions correctly in order to be successful in Exercises 1 and 2.</p>
+Consider the string defined by
+<code>String sample = "CS 1027b";</code>
+What would be returned by each of the following method calls?
+<ul>
+<li>sample.length()</li>
+<li>sample.charAt(1)</li>
+<li>sample.charAt(sample.length()-1)</li>
+<li>sample.substring(0, 1)</li>
+<li>sample.substring(0,sample.length())</li>
+<li>sample.concat(sample)</li>
+</ul></p>
+
+<h3>Exercise 1</h3>
+
+<p>
+Download the file <a href="RecursionLab.java">RecursionLab.java</a>. Your task is to fill
+in the code for a recursive method that prints a string backwards. For
+example, for the parameter string "Java", your method would print
+"avaJ".  The header of this method is <code>public static void
+reversePrint(String inString)</code> Note that the method is static,
+i.e. it is a class method, and will not be invoked on an object. (See
+the <code>main</code> method to see how it is invoked.)
+</p>
+
+<p>Hints</p>
+<ul>
+<li>
+Think about the problem of printing a string in reverse recursively by considering an example string, say "abcd".  To print it in reverse:
+<ul>
+<li>The first character to be printed would be the character "d" (which is the last character of the string). We are then left with the problem of printing a smaller string, "abc" in reverse. (Note that it's the same problem, only with a smaller string)</li>
+<li>Print its last character, "c". We are then left with the problem of printing the smaller string "ab" in reverse.</li>
+<li>Print its last character, "b". We are then left with the problem of printing the smaller string "a" in reverse.</li>
+<li>Print its last character, "a". We are then left with the problem of printing the empty string in reverse. </li>
+</ul>
+</li>
+<li>
+Generalize that into an algorithm for the method <code>reversePrint</code>
+<pre>
+if the parameter string is empty (the base case)
+  return from the method
+else
+  print the last character of the parameter string
+  call reversePrint with the substring that does not include the last character as the parameter
+</pre>
+You can simplify it, by using the test <code>if the string is not empty ..</code>
+You should be able to use just the <code>String</code> methods <code>charAt</code>, <code>substring</code> and <code>length</code>. 
+</li>
+</ul>
+
+<h3>Exercise 2</h3>
+
+<p>
+  Now you will write a recursive method that returns the reverse of a string. For example, for the parameter string "Java"”, your method would return the string "avaJ". The header of your method should be <code>public static String reverseString(String inString)</code>
+Add this method to the file <code>RecursiveLab.java</code>
+</p>
+
+<p>Hints</p>
+<ul>
+<li>
+The algorithm should be 
+<pre>
+if the parameter string is empty (the base case) 
+  return the null string as the result string
+else  
+  result string is the last character of the parameter string, concatenated with 
+     the reverse of the substring that does not include the last character
+  return the result string
+</pre>
+You should be able to use just the <code>String</code>
+methods <code>charAt</code>, <code>substring</code>, <code>concat</code>
+and <code>length</code>.
+</li>
+</ul>
+
+<p>
+Add the following code to the main method in RecursionLab.java to test your reverseString method:
+<pre>
+// test reverseString
+String revString = reverseString(inString);
+System.out.println(revString);
+</pre>
+</p>
+
+<h3>Optional exercises (will not be marked)</h3>
+
+<p>
+Use the method <code>reverseString</code> in an application that
+inputs a string from the user and reports whether or not it is a
+palindrome. A palindrome is a sequence of characters that reads the
+same both forwards and backwards, for example mom, radar, racecar.</p>
+
+<p>
+Write a recursive method with the header
+<code>public static boolean isPalindrome(String s)</code>
+that returns <code>true</code> if the parameter string is a palindrome and <code>false</code> if it is not.
+</p>
+</body>
+</html>
+

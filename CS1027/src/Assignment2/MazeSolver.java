@@ -84,10 +84,12 @@ public class MazeSolver {
 		}
 		// if the end is found then print information
 		if(popHexagon.isEnd()){
-			System.out.println("Number of steps that it took to finish: " + stepCounter);
-			System.out.println("Number of tiles still on the stack: " + hexagonOnStack);
+			System.out.println("We find the end");
+		}else {
+			System.out.println("We didn't find the end");
 		}
-			
+		System.out.println("Number of steps that it took to finish: " + stepCounter);
+		System.out.println("Number of tiles still on the stack: " + hexagonOnStack);
 	}
 
 	
