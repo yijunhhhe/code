@@ -32,7 +32,8 @@ public class RecursionLab{
         String inString = "abcde";
 
 		// test reversePrint
-		//reversePrint(inString);	
+		reversePrint(inString);	
+		System.out.println();		
 		System.out.println(reverseString(inString));
     }
 }
