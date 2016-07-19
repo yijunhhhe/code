@@ -1,0 +1,108 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 8</b></h2>
+</CENTER>
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+<ul>
+  <li> Read through the lab instructions <it> before </it> coming to the lab.
+  <li> Do the pre-lab preparation.
+</ul>
+
+<p>Upon completion of this lab, you should be able to understand
+recursive thinking in the solution of a simple problem.</p>
+
+
+<h3>Overview</h3>
+
+<p>Upon completion of this lab, you should be able to understand the
+use of an Ordered List, and how it compares objects in order to have
+them inserted in the proper place in the Ordered List.</p>
+
+<h3>Exercise 1</h3>
+
+<p>
+<ul>
+<li>
+Download <a href="ArrayList.java">ArrayList.java</a>. It is a completed version; the ArrayList.java on the Sample Code webpage is incomplete.
+</li>
+<li>Download all the other files needed to use <code>ArrayOrderedList.java</code> from the Topic 12 section of the
+<a href="http://www.csd.uwo.ca/courses/CS1027b/code-cs1027b.html">sample code</a> link. There are 6 of them, besides the ArrayList.java you downloaded in step 1.
+</li>
+<li>
+Download the file <a href="Phone.java">Phone.java</a>. The <code>Phone</code> class is a simple class that represents a telephone listing: 
+the attributes are a name and a phone number.
+</li>
+<li>
+Add to the <code>Phone</code> class a header such that it implements the <code>Comparable</code> interface. Make sure you are doing this correctly, by checking the specifications for the <code>Comparable</code> interface in the Java API.
+</li>
+<li>
+Add a <code>compareTo</code> method to the <code>Phone</code> class, such that the <code>Phone</code> entries are compared  by name. Hint: you will need to use the <code>compareTo</code> method of the <code>String</code> class in your code.
+</li>
+<li>Check that your <code>Phone</code> class compiles.</li>
+</ul>
+</p>
+
+<h3>Exercise 2</h3>
+
+<p>
+<ul>
+<li>
+Download the file <a href="PhoneTest.java">PhoneTest.java</a>. Its purpose is to create an ordered list of phone numbers that are important to you, from a file of names and phone numbers which you will supply (see step 3 of this exercise), and then print that list.
+</li>
+<li>
+Download the file <a href="InStringFile.java">InStringFile.java</a> that is used for the file I/O. There is code provided in <code>PhoneTest.java</code> that looks after reading the filename from the keyboard and the data from the file.
+</li>
+<li>
+Create a file of name and phone number pairs, such that each name is on a separate line and each phone number is on a separate line. For example, your phone list might look like this:
+<pre>
+Gates, Bill
+888-888-8888
+Hopper, Grace
+123-456-7890
+</pre>
+</li>
+<li>
+The main method of <code>PhoneTest</code> already contains code to input a filename and to read a name/phone number pair from that file. You will add code in the appropriate places to:
+<ul>
+<li>Create a new Ordered List of <code>Phone</code> objects
+</li>
+<li>Store each name/phone number pair from your file in a <code>Phone</code> object
+</li>
+<li>Add each new <code>Phone</code> object to the Ordered List 
+</li>
+<li>When all of the information in the phone list file has been added to the Ordered List, print the Ordered List of phone numbers.
+</li>
+</ul>
+</li>
+<li>
+Run your completed <code>PhoneTest</code> with your file of phone numbers. The output should be your phone list in alphabetical order by names.
+</li>
+</ul>
+</p>
+
+<h3>Exercise 3</h3>
+
+<p>
+You will now change the ordering of your phone list so that it is ordered by phone numbers rather than by names:
+<ul>
+<li>
+Change the <code>compareTo</code> method of the <code>Phone</code> class such that <code>Phone</code> entries will be ordered by phone number. 
+</li>
+<li>
+Run your <code>PhoneTest</code> with your changed <code>Phone</code> class. The output should be your phone list in order by phone numbers.
+</li>
+</ul>
+
+</body>
+</html>
+

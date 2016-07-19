@@ -1,0 +1,118 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 6</b></h2>
+</CENTER>
+
+<h3>General lab instructions to help labs run smoothly</h3>
+<ul>
+  <li> Read through the lab instructions <it> before </it> coming to the lab.
+  <li> Do the pre-lab preparation.
+</ul>
+
+
+<h3>Overview and preparation</h3>
+
+<p>
+Upon completion of this lab, you should be able to understand the
+linked list and circular array implementations of the Queue ADT.  For
+prepation, review Topic 9 of the lecture notes (make sure you
+understand what a queue looks like when implemented as a linked list,
+as an array, and as a circular array).
+</p>
+
+<h3>Exercise 1</h3>
+
+<p>
+<ul>
+<li>
+Download <code>CircularArrayQueue.java</code> from the sample code
+<a href="http://www.csd.uwo.ca/courses/CS1027b/code-cs1027b.html">page</a>
+and fill in the missing code in the methods.  The code for the helper
+method <code>expandCapacity</code> is given; note that it is different
+from the <code>expandCapacity</code> of the regular array
+implementations that we have seen for the Stack ADT and Queue ADT.
+<ul>
+<li><code>first</code> is similar to <code>dequeue</code>, but doesn't remove the element</li>
+<li><code>isEmpty</code> and <code>size</code> are trivial</li>
+<li>for <code>toString</code>, setting up the string is similar in
+concept to the <code>toString</code> method
+in <code>ArrayStack.java</code>, which was similar to the following:
+<pre>
+public String toString(){
+  String result = "";
+  for (int i=0; i < top; i++)
+    result = result + stack[i].toString() + "\n";
+  return result;
+}
+</pre>
+Of course the attributes are no longer called stack and top, so you
+need to change those. But, more importantly, you will not be starting
+the array index at 0.  The counter for the loop can still go from 0
+to <code>count</code>, since you will still go through the for loop as
+many times as there are items in the queue. But the array index will
+need to be a different variable, that starts at the value in the
+attribute <code>front</code>. You will need to increment the array
+index in the body of the for loop, taking into account that it may
+need to wrap around to the beginning of the array again. It is the
+same idea as how <code>rear</code> is incremented in the <code>enqueue</code> method, and how
+<code>front</code> is incremented in the
+provided <code>expandCapacity</code> method.
+</li>
+</ul>
+</li>
+</ul>
+</p>
+
+<h3>Exercise 2</h3>
+
+<p>
+<ul>
+<li>
+Download the given test driver <a href="TestCAQ.java">TestCAQ.java</a>
+to test your implementation of the <code>CircularArrayQueue</code>
+class. This test driver is provided as an example of a test program
+that does thorough testing, in a way that displays whether or not the
+test results are the expected results.
+</li>
+<li>
+Answer the questions below before running TestCAQ on your circular
+array queue implementation, to make sure you understand how it works.
+<ake corrections in your <code>CircularArrayQueue.java</code> until
+all the tests have been completed successfully.
+<ul>
+<li>
+In the main method, what is the purpose of the second parameter in all
+the calls to the testing methods, for example the first 3 calls:
+<pre>
+t_isEmpty(first, true);
+t_size(first, 0);
+t_toString(first, "");
+</pre>
+</li>
+<li>
+Is it possible to enqueue objects of different types to the queue first, for example:
+<pre>
+first.enqueue(new Integer());
+first.enqueue(new Float(i*10));
+</pre>
+</li>
+<li>
+What is the type of the objects being enqueued in the following statements?
+<pre>
+first.enqueue("A");
+first.enqueue("S");
+</pre>
+</li>
+</ul>
+</p>
+</body>
+</html>
+
