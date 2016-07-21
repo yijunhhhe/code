@@ -8,3 +8,10 @@
 /OrderedListADT.class
 /ElementNotFoundException.class
 /ArrayIterator.class
+/LinkedStack.class
+/LinearNode.class
+/StackADT.class
+/ListIterator.class
+/LinkedIterator.class
+/BuildLinkedList.class
+/ArrayStack.class

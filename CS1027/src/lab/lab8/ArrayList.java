@@ -186,6 +186,17 @@ public class ArrayList<T> implements ListADT<T>
 
       return result;
    }
+   
+   public String toString2()
+   {
+	   String result = "";
+	   
+	   Iterator<T> iter = this.iterator();
+	     while(iter.hasNext()){
+	         result = result + iter.next().toString() + "\n";
+	     }
+	    return result;
+   }
 
    //-----------------------------------------------------------------
    //  Creates a new array to store the contents of the list with

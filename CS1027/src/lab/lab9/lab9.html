@@ -1,0 +1,132 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 9</b></h2>
+</CENTER>
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+<ul>
+  <li> Read through the lab instructions <it> before </it> coming to the lab.
+</ul>
+
+<p>
+Upon completion of this lab, you should be able to use an iterator to
+step through the items in a collection from an application program or
+within a class definition. In this lab you will be using your
+PhoneTest.java from Lab 8. If you did not complete Lab 8, you can
+still complete this Lab. You will need to download all the files that
+were necessary for Lab 8 (see Lab 8 Exercise 0). You will also need to
+create your own data file as described in Lab 8, Exercise 1, step 2.
+</p>
+
+<h3>Exercise 1: Using an interator in an application</h3>
+
+<p>
+In this lab you are using your file PhoneTest.java from 
+<a href="http://www.csd.uwo.ca/courses/CS1027b/labs/lab8/lab8.html">Lab
+8</a> (you can use the same project that you used in Lab 8). You will
+add new code right after the code you inserted in Lab 8 to print the
+ordered list, to step through the list using an iterator and print
+part of the data in the ordered list.</p>
+
+<p>
+Observe that <code>phoneList</code> is of type <code>ArrayOrderedList<Phone></code>, 
+and is declared and created in <code>PhoneTest.java</code> by
+<pre>
+ArrayOrderedList<Phone> phoneList = new ArrayOrderedList<Phone>();
+</pre>
+So, we can iterate through <code>phoneList</code> using the iterator method of the array implementation 
+of the <code>ListADT</code>.  Note that you will need the file <code>ArrayIterator.java</code>.
+<ul>
+<li>
+Add <code>import java.util.Iterator;</code> at the top of your <code>PhoneTest.java</code> 
+(otherwise the compiler won't know to find the <code>Iterator</code> interface).
+</li>
+<li>
+Add code, right after the code you wrote for Lab 8 that prints your ordered list of names and phone numbers, 
+to iterate through your ordered list and print only the names (not the phone numbers). You will be using the 
+iterator operation of the List ADT, i.e. the <code>iterator</code> method of <code>ArrayList</code>.
+Hint see Topic 13 pages 17- 18.
+</li>
+<li>
+Run your <code>PhoneTest.java</code> to check that your new code works correctly.
+</li>
+<li>
+Now add code to iterate through your ordered list again and print only the phone numbers (not the names).
+Hint: see Topic 13 page 18 again. Make sure you reset your <code>iter</code> variable (what happens if you don’t)?
+</li>
+<li>
+Run your <code>PhoneTest.java</code> to check that your new code works correctly.
+</li>
+<li>
+Answer the following questions:
+<ul>
+<li>
+What file(s) would you need to add to your project if you changed <code>phoneList</code> so that it was declared and created by
+<pre>LinkedOrderedList<Phone> phoneList = new LinkedOrderedList<Phone>();</pre>
+</li>
+<li>
+What would you then need to change in the code you wrote for steps 3 and 5?
+</li>
+</ul>
+</li>
+
+</ul>
+</p>
+
+<h3>Exercise 2: Using an iterator in a class definition</h3>
+
+<p>
+You will now write a different <code>toString</code> method for the <code>ArrayList</code> class: one that uses its iterator to step through the items in the list.
+<ul>
+<li>Add a new method called <code>toString2</code> (just to
+differentiate it from the original <code>toString</code> method) to
+<code>ArrayList.java</code>. It will have exactly the same functionality as
+<code>toString</code>, i.e. it will return a <code>String</code>
+representation of the list, but it will invoke
+the <code>iterator()</code> method of <code>ArrayList</code> in order
+to step through all the items in the list.  Hint: see Topic 13 page
+19.
+</li>
+<li>Now add a line of code to your <code>PhoneTest.java</code> that prints your entire ordered list using the method <code>toString2</code>. Remember that <code>ArrayUnorderedList</code> extends <code>ArrayList</code>, so inherits its methods.
+</li>
+<li>
+Run your <code>PhoneTest.java</code> to check that your <code>toString2</code> works correctly.
+</li>
+<li>Question: Consider the linked implementation of the </code>ListADT</code>, <code>LinkedList.java</code>. 
+Would the exact same <code>toString2</code> method work in <code>LinkedList.java</code> too?
+</li>
+</ul>
+</p>
+
+<h3>Exercise 3: Add an iterator method to the Stack implementations</h3>
+
+<p>
+<ul>
+<li>Add an <code>iterator()</code> method to your <code>LinkedStack.java</code>. 
+Hint: see Topic 13 page 15. Remember to add <code>import java.util.Iterator;</code> at the beginning of the file.
+</li>
+<li>
+Lab 5 had code for a test harness for your <code>LinkedStack.java</code>. Add code to the test harness to test your <code>iterator</code> method, by iterating through the stack and printing the items in the stack. This is similar to what you did in Exercise 1 step 3. In what order are the items on the stack printed: top to bottom or bottom to top?
+</li>
+<li>
+Add an iterator method to <code>ArrayStack.java</code>.  int: see Topic 13 page 14. Remember to add <code>import java.util.Iterator;</code> at the beginning of the file. Add a test harness to your <code>ArrayStack</code> class similar to the one you had for <code>LinkedStack</code> in step 2 of this exercise. In what order are the items on the stack printed: top to bottom or bottom to top?
+</li>
+<li>(optional)
+The reason for the order in which the items are delivered is the way in which the <code>ArrayIterator</code> code goes through the array (i.e. starting at index 0). Write a new class <code>ArrayIterator2</code> that delivers the items in the array in the opposite order (i.e. starting at the index of the last item in the array).  Change the iterator method in your <code>ArrayStack.java</code> so that it uses <code>ArrayIterator2</code>.
+Now test <code>ArrayStack</code> again with your test harness. In what order are the items on the stack printed now: top to bottom or bottom to top?
+</li>
+
+</p>
+
+</body>
+</html>
+
