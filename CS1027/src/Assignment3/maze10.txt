@@ -1,0 +1,6 @@
+5 5
+W U S W W
+ U W U W W
+W U W U U
+ W U W W W 
+W E W W W 
