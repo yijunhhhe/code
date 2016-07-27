@@ -1,0 +1,76 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 10</b></h2>
+</CENTER>
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+<ul>
+  <li> Read through the lab instructions <it> before </it> coming to the lab.
+</ul>
+
+<p>
+Upon completion of this lab, you should be able to understand the
+linked list implementation of the Binary Tree ADT and implement some
+binary tree operations.
+</p>
+
+
+
+<h3>Exercise 1: Understanding the BinaryTreeNode class</h3>
+
+Download the file
+<a href="BinaryTreeNode.java">BinaryTreeNode.java</a>.  Look at the
+picture of the BinaryTreeNode in Topic 14 page 45 of the lecture
+notes, and examine the code to see how the node is implemented.
+<ul>
+<li>Change the privacy modifiers on the attributes so that they are private rather than protected.</li>
+<li>Add getter and setter methods for all the attributes.</li>
+<li>Make sure your new <code>BinaryTreeNode.java</code> compiles.</li>
+</ul>
+
+<h3>Exercise 2</h3>
+
+<ul>
+<li>
+Download the files
+<a href="LinkedBinaryTree.java">LinkedBinaryTree.java</a>, as well as
+the files <a href="ArrayList.java">ArrayList.java</a> and
+<a href="ArrayUnorderedList.java">ArrayUnorderedList.java</a> provided here. 
+Download as well the interfaces you need from the <a href="http://www.csd.uwo.ca/courses/CS1027b/code-cs1027b.html">code</a>
+webpage, as well required exception classes, iterators, ...
+</li>
+<li>
+In <code>LinkedBinaryTree.java</code>, change all usage of the attributes of the <code>BinaryTreeNode</code> class (such as root.left) in the provided code, to invocations of the getter and setter methods you wrote in Exercise 1.
+</li>
+<li>
+Complete the following methods in <code>LinkedBinaryTree.java</code>:
+<ul>
+<li><code>getRoot</code>, <code>isEmpty</code>, <code>size</code></li>
+<li><code>contains</code>. Hint: use <code>findAgain</code>.</li>
+<li><code>iteratorPreOrder</code>, <code>preorder</code>, <code>iteratorPostOrder</code>, and <code>postorder</code>. Hint:  Model your code for these on the methods <code>iteratorInOrder</code> and <code>inorder</code>. The main thing that you need to change is where the node is visited in preorder and postorder.
+</li>
+</ul>
+</li>
+<li>
+Complete the method <code>toString</code>. Hint: printing the data elements of the tree is basically just a traversal of the tree. Choose one of the traversal orders (preorder, inorder, or postorder) and use exactly the same idea of using a temporary unordered list as in the provided method <code>iteratorInOrder</code>: create a new unordered list, call the method <code>preorder</code>, or <code>inorder</code>, or <code>postorder</code>, which will add the elements of the tree to the unordered list, call the <code>toString</code> method on the unordered list.</li> 
+<li>
+For now, you do not need to complete <code>iteratorLevelOrder</code>. However, you will need to return something from within the body of this  method in order to have the code compile: just have it return null.
+</li>
+<li>
+To test your implementation, download the file <a href="TestBinaryTree.java">TestBinaryTree.java</a>.  You will also need to insert an additional constructor into your <code>LinkedBinaryTree.java</code>; it is in the file <a href="LBTConstructor.txt">LBTConstructor.txt</a>, and is used to build the sample tree in <code>TestBinaryTree.java</code>. Check the comments in the code for <code>TestBinaryTree.java</code> to see what the constructed tree looks like.
+</li>
+
+</ul>
+
+</body>
+</html>
+

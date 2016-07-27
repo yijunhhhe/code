@@ -1,0 +1,30 @@
+   /**
+    * Constructor creates tree from element as root and two subtrees
+    * as left and right subtrees of root.
+    * @param element		element at root	
+    * @param leftSubtree	left subtree
+    * @param rightSubtree	right subtree
+    */
+
+   public LinkedBinaryTree (T element, LinkedBinaryTree<T> leftSubtree,
+                                 LinkedBinaryTree<T> rightSubtree) 
+   {
+	 root = new BinaryTreeNode<T> (element);
+	 count = 1;
+	 if (leftSubtree != null)
+	 {
+		count = count + leftSubtree.size();
+		root.setLeft(leftSubtree.root);
+	 }
+	 else
+		root.setLeft(null);
+	 
+	 if (rightSubtree !=null)
+	 {
+		count = count + rightSubtree.size(); 
+	 	root.setRight(rightSubtree.root);
+	 }
+	 else
+		root.setRight(null);
+ 
+   }

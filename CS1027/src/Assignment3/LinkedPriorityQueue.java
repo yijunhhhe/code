@@ -1,14 +1,20 @@
 /**
- * ??
+ * class represents an linked implementation of priority queue adt 
+ * with some basic operations such as enqueue, dequeue etc.
  *
- * @author 
- * @author 
- * @version
+ * @author Yijun He
  */
 
 public class LinkedPriorityQueue<T> implements PriorityQueueADT<T>
 {
+	   /*
+	    * the size of the queue
+	    */
 	   private int count;
+	   
+	   /*
+	    * reference to the front of the queue and the end of the queue
+	    */
 	   private PriorityNode<T> front, rear;
 
 	   /**
@@ -39,17 +45,22 @@ public class LinkedPriorityQueue<T> implements PriorityQueueADT<T>
 	      rear = node;
 	      count++;
 	   }
-
+	   
+	   /**
+	    * Addds the specified element to the rear of this queue
+	    * @param element the element to be added to the rear of this queue
+	    * @param p priority of the element
+	    */
 		public void enqueue(T element, double p) {
 			PriorityNode<T> node = new PriorityNode<T>(element,p);
 			PriorityNode<T> current = null; 
-			
+			PriorityNode<T> previous = null;
 			if (isEmpty()){
 		         front = node;
 		         rear = node;
 			} else{
 			current = front;
-			PriorityNode<T> previous = null;			
+						
 
 			while (current != null && p > current.getPriority()){
 				previous = current;
