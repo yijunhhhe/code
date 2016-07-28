@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>CS1027b, Labs</TITLE>
+<link rel="stylesheet" href="td.css" type="text/css" media="all" />
+</HEAD>
+
+<body bgcolor="#FFFFFF">
+
+<CENTER>
+<h1><b>CS1027b Computer Science Fundamentals II</b></h1>
+<h2><b>Lab 11</b></h2>
+</CENTER>
+
+
+<h3>General lab instructions to help labs run smoothly</h3>
+<ul>
+  <li> Read through the lab instructions <it> before </it> coming to the lab.
+</ul>
+
+<p>
+Upon completion of this lab, you should be able to understand inorder
+traversals of a Binary Search Tree and observe how Binary Search Trees
+look when they are built in different ways.
+</p>
+
+<h3>Exercise 1 -  Traversing a Binary Search Tree in Descending Order</h3>
+
+<p>
+Recall that an inorder traversal of a Binary Tree does the (recursive)
+traversal like this: traverse left subtree, visit root, traverse right
+subtree. For a Binary Search Tree, this results in the tree items
+being visited in ascending order. To visit the items in descending
+order, we switch the left and right traversals in the recursive
+algorithm.
+</p>
+
+<p>
+Recall that the <code>LinkedBinaryTree</code> class has the method
+<code>iteratorInOrder</code>. Let's call our method that does the
+right,root,left variation of inorder traversal
+<code>iteratorInOrderDescending</code>. There are many ways we could
+add this method; for example, it could be added
+to <code>LinkedBinaryTree.java</code>. However, since it is most
+relevant to a Binary Search Tree, we could also add it to our
+<code>LinkedBinarySearchTree</code> (which
+extends <code>LinkedBinaryTree</code>). Or, we could add it to
+<code>BinarySearchTreeList</code> (which
+extends <code>LinkedBinarySearchTree</code>).  We will call this class
+<code>IterableBinarySearchTreeList</code>, and you will implement the
+following two methods (only) in that class:
+<ul>
+<li><code>public Iterator<T> iteratorInOrderDescending()</code>, which
+returns an iterator which iterates over all elements in the tree in
+descending order.  Hint: see the <code>iteratorInOrder</code> method
+in <code>LinkedBinaryTree</code>. You can copy its code to this
+method, and change it to use your <code>inorderDescending</code> method.
+</li>
+<li><code>private inorderDescending(BinaryTreeNode<T> node,
+ArrayUnorderedList<T> tempList)</code>, which performs a recursive
+inorder traversal in descending order.  Hint: this is nearly identical
+to the <code>inorder</code> method
+in <code>LinkedBinaryTree</code>. Here, instead of going left to
+right, we want to go right to left.
+</li>
+</ul></p>
+
+<h3>Exercise 2 -  Creating a Balanced Binary Search Tree List</h3>
+
+<p>
+Download the files <a href="BuildBSTList.java">BuildBSTList.java</a>
+and <a href="iteratorLevelOrder.txt">iteratorLevelOrder.txt</a> and
+put the code of the <code>iteratorLevelOrder</code> method into your
+<code>LinkedBinaryTree.java</code> from Lab 10 (this is the only
+method you did not complete in Lab 10). Note that it requires the
+<code>ArrayUnorderedList</code> class, etc., to compile; we provide 
+most of them <a href=".">here</a>.</p>
+
+<p>
+<code>BuildBSTList.java</code> is an (incomplete) program that starts
+with an <code>ArrayOrderedList</code> of integers from 1 to 10, and
+builds a <code>BinarySearchTreeList</code> by just taking the items
+from the ordered list (in order) and adding them to the binary search
+tree. What do you expect that the binary search tree will look like?
+This will be confirmed when you complete the program and run it; it
+will show the created tree in level-order. The program then builds
+another <code>BinarySearchTreeList</code> by calling a
+method <code>buildBalanced</code> that uses an idea for building a
+balanced tree: it creates an ordinary array that is the same size as
+the <code>ArrayOrderedList</code>, copies the items
+in <code>ArrayOrderedList</code> to this array, and then passes the
+array to a recursive method we have called <code>buildBalancedRec</code> here. The
+method <code>buildBalanced</code> is provided for you.</p>
+
+<p>
+Run your completed program and note the difference in the level-order
+representation of the first tree created (by just adding the items in
+order) and the second tree created (by adding the items so that the
+tree is as balanced as possible). Draw a picture of the two trees from
+the level-order representation, and show it to the TA.
+</p>
+
+
+</body>
+</html>
+
