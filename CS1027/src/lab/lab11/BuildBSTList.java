@@ -61,9 +61,12 @@ public class BuildBSTList {
 	private static void buildBalancedRec(Integer [] tempArr, int start, int end,
 			BinarySearchTreeList<Integer> bstList)
 	{		
-			int mid  = (start + end)/2;
 			if(end < 0 || start > end) return;
-			bstList.add(mid);			
+			int mid  = (start + end)/2;
+			
+			bstList.add(tempArr[mid]);		
+			System.out.println(tempArr[mid]);
+			//buildBalancedRec(tempArr, start, end, bstList);
 			buildBalancedRec(tempArr, start, mid - 1, bstList);
 			buildBalancedRec(tempArr, mid + 1, end, bstList);
 					

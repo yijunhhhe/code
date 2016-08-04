@@ -5,7 +5,7 @@ public class IterableBinarySearchTreeList extends LinkedBinaryTree {
 	
 	public Iterator iteratorInOrderDescending(){
 		ArrayUnorderedList tempList = new ArrayUnorderedList();
-        inorder(root, tempList);
+		inorderDescending(root, tempList);
 
         return tempList.iterator();
 	}

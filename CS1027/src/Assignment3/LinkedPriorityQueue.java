@@ -77,10 +77,7 @@ public class LinkedPriorityQueue<T> implements PriorityQueueADT<T>
 				previous.setNext(node);
 				node.setNext(current);
 			}
-			/*for( int i = (int) (p + 1); i <= rear.getPriority() + 1; i++){
-				current.setPriority(i);
-				current = current.getNext();
-			}*/}
+	}
 			
 			count++;
 			

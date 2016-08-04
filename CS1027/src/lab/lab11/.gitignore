@@ -9,9 +9,9 @@
 /BuildBSTList.class
 /ElementNotFoundException.class
 /EmptyCollectionException.class
+/IterableBinarySearchTreeList.class
 /LinkedBinarySearchTree.class
 /LinkedBinaryTree.class
 /ListADT.class
 /OrderedListADT.class
 /UnorderedListADT.class
-/IterableBinarySearchTreeList.class
