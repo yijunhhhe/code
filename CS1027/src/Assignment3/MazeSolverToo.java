@@ -72,11 +72,9 @@ public class MazeSolverToo {
 		 * enqueue start hexagon in the queue
 		 */
 		priorityQueue.enqueue(start);
-		double stepToMe = 0;
 		while(!priorityQueue.isEmpty()){
 			dequeue = priorityQueue.dequeue();
 			dequeue.setDequeued();
-			//stepToMe++;
 			numberOfStep++;
 			hexagonOnQueue--;
 			// if dequeued hexagon is the end exit the while loop
@@ -91,27 +89,20 @@ public class MazeSolverToo {
 					if(neighbor != null && !neighbor.isWall() && !neighbor.isEnqueued() && !neighbor.isDequeued() && !neighbor.isStart()){
 						//stepToMe = start.distanceToEnd(maze) - neighbor.distanceToEnd(maze);
 						neighbor.setSteps(dequeue.getSteps()+1);
-						
-						//neighbor.setSteps(stepToMe);	
-						//stepToMe = neighbor.getSteps();
 						distanceToEnd = neighbor.distanceToEnd(maze);
 						priority = neighbor.getSteps() + neighbor.distanceToEnd(maze);
 						priorityQueue.enqueue(neighbor, priority);	
 						neighbor.setEnqueued();
 						hexagonOnQueue++;
-						stepToMe = neighbor.getSteps();
-						//System.out.println("step to me: " + neighbor.getSteps() + "HexagonOnQueue" + hexagonOnQueue + "  distance to end: "+  distanceToEnd +"  priority: "+ priority);
 					}
 				}
 			}
-			//dequeue.setEnqueued();
-			System.out.println("step to me: " + stepToMe + "Number of Step: "+ numberOfStep + " HexagonOnQueue" + hexagonOnQueue + "  distance to end: "+  distanceToEnd +"  priority: "+ priority);
 			// repaint the maze
 			maze.repaint();			
 		}
 		// whether the dequeued hexagon is the end or not, print the result
 		if(dequeue.isEnd()){
-		System.out.format("the end is found, the number of step to finish %d\n"
+			System.out.format("the end is found, the number of step to finish %d\n"
 				+ "tiles still in priority queue: %d \n"
 				+ "Number of step taken: %f", numberOfStep, priorityQueue.size(), dequeue.getSteps()+1);
 		}else {

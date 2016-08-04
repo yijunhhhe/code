@@ -4,8 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Graphics;
 import java.awt.event.*;
 
-public class SimpleGui1B implements ActionListener {
-	JButton button, button1;
+public class SimpleGui1B{
+	JButton buttonColor, buttonLabel;
 	JFrame frame;
 	JLabel label;
 	public static void main(String[] args){
@@ -16,36 +16,39 @@ public class SimpleGui1B implements ActionListener {
 	public void go(){
 		frame = new JFrame();
 		label = new JLabel("label");
-		button  = new JButton("click me");
-		button1 = new JButton("change label");
+		buttonColor  = new JButton("click me");
+		buttonLabel = new JButton("change label");
 		MyDrawPanel panel = new MyDrawPanel();
 		
 	
-		button.addActionListener(this);
-		button1.addActionListener(this);
+		buttonLabel.addActionListener(new LabelListener());
+		buttonColor.addActionListener(new ColorListener());
 		
 		frame.getContentPane().add(BorderLayout.WEST, label);
 		frame.getContentPane().add(panel);
-		frame.getContentPane().add(BorderLayout.SOUTH, button);
-		frame.getContentPane().add(BorderLayout.EAST, button1);
+		frame.getContentPane().add(BorderLayout.SOUTH, buttonColor);
+		frame.getContentPane().add(BorderLayout.EAST, buttonLabel);
 		frame.repaint();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(300, 300);
-		frame.setVisible(true);
-		
-		
-		
+		frame.setVisible(true);		
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource() == button){
-		frame.repaint();
-		} else{
-			label.setText("suck my d");
+	
+	class LabelListener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+			label.setText("hey");
 		}
-		
-		
 	}
+	
+	class ColorListener implements ActionListener{
+		public void actionPerformed(ActionEvent event){
+			frame.repaint();
+		}
+	}
+	
+	
+	
+		
+		
 }
+

@@ -47,7 +47,7 @@ public class LinkedPriorityQueue<T> implements PriorityQueueADT<T>
 	   }
 	   
 	   /**
-	    * Addds the specified element to the rear of this queue
+	    * Adds the specified element to the rear of this queue
 	    * @param element the element to be added to the rear of this queue
 	    * @param p priority of the element
 	    */
@@ -59,8 +59,7 @@ public class LinkedPriorityQueue<T> implements PriorityQueueADT<T>
 		         front = node;
 		         rear = node;
 			} else{
-			current = front;
-						
+			current = front;						
 
 			while (current != null && p > current.getPriority()){
 				previous = current;
@@ -77,13 +76,8 @@ public class LinkedPriorityQueue<T> implements PriorityQueueADT<T>
 				previous.setNext(node);
 				node.setNext(current);
 			}
-			/*for( int i = (int) (p + 1); i <= rear.getPriority() + 1; i++){
-				current.setPriority(i);
-				current = current.getNext();
-			}*/}
-			
-			count++;
-			
+			}
+			count++;			
 		}
 		
 		
