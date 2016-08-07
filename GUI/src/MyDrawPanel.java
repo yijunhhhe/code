@@ -5,10 +5,18 @@ import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
-public class MyDrawPanel extends JPanel {
+//public class MyDrawPanel extends JPanel {
 
 	public void paintComponent(Graphics g){
-		Graphics2D g2d = (Graphics2D)g;
+		g.setColor(Color.yellow);
+		g.fillOval(x, y, 100, 100);
+		
+		
+		
+		
+		
+	}
+		/*Graphics2D g2d = (Graphics2D)g;
 		
 		int red = (int)(Math.random() * 255);
 		int green = (int)(Math.random() * 255);
@@ -28,7 +36,7 @@ public class MyDrawPanel extends JPanel {
 		g2d.fillRect(50, 70, 100, 100);
 		
 	}
-	
+	*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
