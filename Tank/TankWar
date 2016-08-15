@@ -5,3 +5,8 @@ TANKWAR
 
 2. create paint method
   -create a oval and fill some color
+
+3. make the tank move
+  -let filloval location change
+  -create runnable object for repaint method
+  -create new thread object in frame

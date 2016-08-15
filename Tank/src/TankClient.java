@@ -3,12 +3,17 @@ import java.awt.event.*;
 
 public class TankClient extends Frame {
 
+	int x = 50;
+	int y = 50;
+	
+	
 	public void paint(Graphics g){
 		Color c = g.getColor();	
 		g.setColor(Color.red);
-		g.fillOval(50, 50, 30, 30);
+		g.fillOval(x, y, 30, 30);
 		g.setColor(c);
-	
+		x++;
+		y++;
 	}
 	
 	public void launchFrame(){
@@ -23,6 +28,7 @@ public class TankClient extends Frame {
 		this.setResizable(false);
 		this.setBackground(Color.GREEN);
 		setVisible(true);
+		new Thread(new PaintThread()).start();
 	}
 	
 	
@@ -31,5 +37,17 @@ public class TankClient extends Frame {
 		TankClient tc = new TankClient();
 		tc.launchFrame();
 	}
-
+	
+	private class PaintThread implements Runnable{
+		public void run(){
+			while(true){
+				repaint();
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
