@@ -23,3 +23,7 @@ TANKWAR
 5. add key control
   -add listener
   -set up each key
+
+6. make a tank class put stuff in it
+  -paint method to tank class's draw method
+  -keypress code to tank class

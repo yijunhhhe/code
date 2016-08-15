@@ -9,16 +9,14 @@ public class TankClient extends Frame {
 	int x = 50;
 	int y = 50;
 	
+	Tank myTank = new Tank(50,50);
+	
 	Image offScreenImage = null;
 	
 
 	public void paint(Graphics g){
-		Color c = g.getColor();	
-		g.setColor(Color.red);
-		g.fillOval(x, y, 30, 30);
-		g.setColor(c);
-		x++;
-		y++;
+		myTank.draw(g);
+		
 	}
 	
 	public void update(Graphics g) {
@@ -63,7 +61,7 @@ public class TankClient extends Frame {
 			while(true){
 				repaint();
 				try {
-					Thread.sleep(30);
+					Thread.sleep(100);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -73,10 +71,7 @@ public class TankClient extends Frame {
 	private class KeyMonitor extends KeyAdapter{
 		
 		public void keyPressed(KeyEvent e) {
-			int key = e.getKeyCode();
-			if(key == com.sun.glass.events.KeyEvent.VK_RIGHT){
-				
-			}
+			myTank.keyPressed(e);
 		}
 	}
 }
