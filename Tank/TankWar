@@ -19,3 +19,7 @@ TANKWAR
     -reset background color
     -paint sth to image
     -use update painter to draw by using image
+
+5. add key control
+  -add listener
+  -set up each key

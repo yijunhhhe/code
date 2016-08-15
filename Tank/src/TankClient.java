@@ -46,6 +46,7 @@ public class TankClient extends Frame {
 		});
 		this.setResizable(false);
 		this.setBackground(Color.GREEN);
+		this.addKeyListener(new KeyMonitor());
 		setVisible(true);
 		new Thread(new PaintThread()).start();
 	}
@@ -69,4 +70,14 @@ public class TankClient extends Frame {
 			}
 		}
 	}
+	private class KeyMonitor extends KeyAdapter{
+		
+		public void keyPressed(KeyEvent e) {
+			int key = e.getKeyCode();
+			if(key == com.sun.glass.events.KeyEvent.VK_RIGHT){
+				
+			}
+		}
+	}
 }
+
