@@ -6,7 +6,9 @@ public class TankClient extends Frame {
 	int x = 50;
 	int y = 50;
 	
+	Image offScreenImage = null;
 	
+
 	public void paint(Graphics g){
 		Color c = g.getColor();	
 		g.setColor(Color.red);
@@ -15,6 +17,20 @@ public class TankClient extends Frame {
 		x++;
 		y++;
 	}
+	
+	public void update(Graphics g) {
+		if(offScreenImage == null){
+			offScreenImage = this.createImage(800, 600);		
+		}
+		Graphics gOffScreen = offScreenImage.getGraphics();
+		Color c = gOffScreen.getColor();
+		gOffScreen.setColor(Color.GREEN);
+		gOffScreen.fillRect(0, 0, 800, 600);
+		gOffScreen.setColor(c);
+		paint(gOffScreen);
+		g.drawImage(offScreenImage, 0, 0, null);
+	}
+	
 	
 	public void launchFrame(){
 		this.setLocation(200,100);
@@ -43,7 +59,7 @@ public class TankClient extends Frame {
 			while(true){
 				repaint();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(5);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

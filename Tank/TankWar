@@ -8,5 +8,14 @@ TANKWAR
 
 3. make the tank move
   -let filloval location change
-  -create runnable object for repaint method
+  -create runnable class for repaint method
   -create new thread object in frame
+
+4. eliminating flash
+  -by overriding update method
+    -create a null image
+    -in update method if image is empty create one
+    -get image painter
+    -reset background color
+    -paint sth to image
+    -use update painter to draw by using image
