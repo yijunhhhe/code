@@ -2,3 +2,6 @@ TANKWAR
 
 1. create a frame
   -set some attribute i.e. location, size, visible, resize, window close, title
+
+2. create paint method
+  -create a oval and fill some color
