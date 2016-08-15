@@ -1,4 +1,4 @@
 TANKWAR
 
 1. create a frame
-  -set some attribute i.e. location, size, visible.
+  -set some attribute i.e. location, size, visible, resize, window close, title
