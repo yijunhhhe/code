@@ -55,3 +55,12 @@ TANKWAR
   -everytime when it fires add to the list
   -modify the paint method to draw all the missile
   -u can use drawstring to see how many missiles in the list
+
+12. let missiles dies if it is out
+  -need a boolean in missiles class to determine if it is dead
+    -if missiles is out live = false(in missile method)
+    -in paint method chech islive before draw
+  method 2
+    -add tankclient object in missile class
+    -if missiles is out, call the arraylist and remove by using tc object
+    -new constructor for missile by passing x y direction and tankclient

@@ -9,6 +9,13 @@ public class Missile {
 	
 	int x,y;
 	Tank.Direction dir;
+	
+	private boolean live = true;
+	
+	public boolean isLive() {
+		return live;
+	}
+
 	public Missile(int x, int y, Tank.Direction dir) {
 		this.x = x;
 		this.y = y;
@@ -54,6 +61,10 @@ public class Missile {
 			x -= XSPEED;
 			y += YSPEED;
 			break;
+		}
+		
+		if(x < 0 || y < 0 || x > TankClient.GAME_WIDTH || y > TankClient.GAME_HEIGHT){
+			live = false;
 		}
 	}
 	
