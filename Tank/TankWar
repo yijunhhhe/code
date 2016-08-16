@@ -37,4 +37,10 @@ TANKWAR
 
 8. create a missile
   -attribute, move method
-9.
+
+9. draw missile (how to let tankclient draw missile)(need an instance of missile, let missile draw itself)
+  -add control press
+  -create a fire method return missile
+  -everytime when pressing control it return a missile that tankclient can call the draw method to draw the missile
+   (so the missile can move)
+  -make the missile in the middle

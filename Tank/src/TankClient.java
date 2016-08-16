@@ -9,14 +9,16 @@ public class TankClient extends Frame {
 	int x = 50;
 	int y = 50;
 	
-	Tank myTank = new Tank(50,50);
-	Missile m = new Missile(50, 50, Tank.Direction.R);
+	Tank myTank = new Tank(50,50, this);
+	Missile m = null;
 	Image offScreenImage = null;
 	
-
+	
 	public void paint(Graphics g){
 		myTank.draw(g);
-		m.draw(g);
+		if(m!=null) m.draw(g);
+		
+		
 	}
 	
 	public void update(Graphics g) {
