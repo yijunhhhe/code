@@ -27,3 +27,9 @@ TANKWAR
 6. make a tank class put stuff in it
   -paint method to tank class's draw method
   -keypress code to tank class
+
+7. let tank move
+  -add boolean for the state of keypress
+  -add direction by using enum
+  -decide tank direction based on key state
+  -based on the direction make it move by moving x,y
