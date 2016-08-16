@@ -34,3 +34,7 @@ TANKWAR
   -decide tank direction based on key state
   -based on the direction make it move by moving x,y
   -need both keyreleased and keypressed
+
+8. create a missile
+  -attribute, move method
+9.
