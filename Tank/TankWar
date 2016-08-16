@@ -44,3 +44,14 @@ TANKWAR
   -everytime when pressing control it return a missile that tankclient can call the draw method to draw the missile
    (so the missile can move)
   -make the missile in the middle
+
+10. draw a paotong
+  -add a pt direction
+  -add different situation in draw method to draw a line
+  -let tank direction equal pt direction
+
+11. need more bullets
+  -need an arraylist to store missiles
+  -everytime when it fires add to the list
+  -modify the paint method to draw all the missile
+  -u can use drawstring to see how many missiles in the list

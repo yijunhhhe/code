@@ -17,6 +17,7 @@ public class Tank {
 	enum Direction {L, LU, U, RU, R, RD, D , LD, STOP};
 	
 	private Direction dir = Direction.STOP;
+	private Direction ptDir = Direction.D;	
 		
 	public Tank(int x, int y){
 		this.x = x;
@@ -33,6 +34,35 @@ public class Tank {
 		g.setColor(Color.red);
 		g.fillOval(x, y, WIDTH, HEIGHT);
 		g.setColor(c);
+		
+		switch(ptDir){
+		case L:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x, y + Tank.HEIGHT/2);
+			break;
+		case LU:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x, y);
+			break;
+		case U:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x + Tank.WIDTH/2, y );
+			break;
+		case RU:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x + Tank.WIDTH, y);
+			break;
+		case R:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x + Tank.WIDTH, y + Tank.HEIGHT/2);
+			break;
+		case RD:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x + Tank.WIDTH, y + Tank.HEIGHT);
+			break;
+		case D:		
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x + Tank.WIDTH /2, y + Tank.HEIGHT );
+			break;
+		case LD:
+			g.drawLine(x + Tank.WIDTH/2, y + Tank.HEIGHT/2, x, y + Tank.HEIGHT);
+			break;
+		case STOP:
+			break;
+		}
 		move();
 	}
 	
@@ -69,14 +99,18 @@ public class Tank {
 		case STOP:
 			break;
 		}
+		
+		if(this.dir != Direction.STOP){
+			this.ptDir = this.dir;
+		}
+		
+		
+		
 	}
 	
 	public void keyPressed(KeyEvent e){
 		int key = e.getKeyCode();
 		switch(key){
-		case KeyEvent.VK_CONTROL:
-			tc.m = fire();
-			break;
 		case KeyEvent.VK_LEFT:
 			bL = true;
 			break;
@@ -108,6 +142,9 @@ public class Tank {
 	public void keyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 		switch(key){
+		case KeyEvent.VK_CONTROL:
+			tc.missiles.add(fire());
+			break;
 		case KeyEvent.VK_LEFT:
 			bL = false;
 			break;
