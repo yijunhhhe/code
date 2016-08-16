@@ -51,6 +51,7 @@ public class Tank {
 			break;
 		case D:		
 			y += YSPEED;
+			break;
 		case LD:
 			x -= XSPEED;
 			y += YSPEED;
@@ -89,6 +90,25 @@ public class Tank {
 		else if(!bL && ! bU && !bR && bD) dir = Direction.D;
 		else if(bL && ! bU && !bR && bD) dir = Direction.LD;
 		else if(!bL && ! bU && !bR && !bD) dir = Direction.STOP;
+	}
+
+	public void keyReleased(KeyEvent e) {
+		int key = e.getKeyCode();
+		switch(key){
+		case KeyEvent.VK_LEFT:
+			bL = false;
+			break;
+		case KeyEvent.VK_UP:
+			bU = false;
+			break;
+		case KeyEvent.VK_RIGHT:
+			bR = false;
+			break;
+		case KeyEvent.VK_DOWN:
+			bD = false;
+			break;
+		}
+		locateDirection();
 	}
 	
 
