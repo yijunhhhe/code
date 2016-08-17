@@ -9,6 +9,9 @@ public class Tank {
 	public static final int WIDTH = 30;
 	public static final int HEIGHT = 30;
 	
+	private boolean live = true;
+	
+	
 	TankClient tc;
 	
 	private boolean good;
@@ -33,6 +36,8 @@ public class Tank {
 	}
 	
 	public void draw(Graphics g){
+		if(!live) return;
+		
 		Color c = g.getColor();	
 		if(good)g.setColor(Color.red);
 		else g.setColor(Color.blue);
@@ -172,9 +177,19 @@ public class Tank {
 	public Missile fire(){
 		int x = this.x + Tank.WIDTH/2 - Missile.WIDTH/2;
 		int y = this.y + Tank.HEIGHT/2 - Missile.HEIGHT/2;
-		Missile m = new Missile(x, y, dir);
+		Missile m = new Missile(x, y, dir, tc);
 		return m;
 	}
+	public Rectangle getRect(){
+		return new Rectangle(x, y, WIDTH, HEIGHT);
+	}
 	
+	public boolean isLive() {
+		return live;
+	}
+
+	public void setLive(boolean live) {
+		this.live = live;
+	}
 
 }

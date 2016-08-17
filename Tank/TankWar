@@ -73,3 +73,9 @@ TANKWAR
   -based on boolean change color in draw method
   -change the constructor for tank add boolean in it
   -new a enemytank object and draw it in paint method
+
+15. kill the enemy
+  -add a hitTank method to return boolean if they are hit each other
+  -use rectangle class to help detect if two hit each other (getRect method)
+  -when missile hit tank missile die tank die
+  -add boolean live in tank in missile class(live mean not dead)
