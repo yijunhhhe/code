@@ -11,7 +11,8 @@ public class TankClient extends Frame {
 	int x = 50;
 	int y = 50;
 	
-	Tank myTank = new Tank(50,50, this);
+	Tank myTank = new Tank(50,50,true, this);
+	Tank enemyTank = new Tank(100, 100, false, this);
 	List<Missile> missiles = new ArrayList<Missile>();
 	
 	Missile m = null;
@@ -26,7 +27,7 @@ public class TankClient extends Frame {
 			m.draw(g);
 		}
 		myTank.draw(g);		
-		
+		enemyTank.draw(g);
 	}
 	
 	public void update(Graphics g) {

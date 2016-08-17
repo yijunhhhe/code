@@ -67,3 +67,9 @@ TANKWAR
 
 13. dont let tank out of bound
   -in move method set up the condition
+
+14. add an enemy
+  -add a boolean identifying enemy or not in tank
+  -based on boolean change color in draw method
+  -change the constructor for tank add boolean in it
+  -new a enemytank object and draw it in paint method
