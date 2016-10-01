@@ -79,3 +79,4 @@ TANKWAR
   -use rectangle class to help detect if two hit each other (getRect method)
   -when missile hit tank missile die tank die
   -add boolean live in tank in missile class(live mean not dead)
+
