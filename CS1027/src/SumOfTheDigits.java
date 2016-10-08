@@ -15,30 +15,30 @@ public class SumOfTheDigits {
 			numberList.add(number % 10);
 			number = number / 10;
 		} while(number > 0);
-		
-		for ( int integer: numberList )	{		
+
+		for ( int integer: numberList )	{
 			sum = sum + integer;	}
 		while (sum >= 10){
 			newSumList.clear();
 			do{
-			
+
 				newSumList.add(sum % 10);
 				sum = sum / 10;
-			
+
 			}while(sum > 0);
 			sum = 0;
-			for ( int newInt: newSumList){					
+			for ( int newInt: newSumList){
 				sum = sum + newInt;
-			}		
+			}
 		}
-		System.out.println("Your lucky number is:"); 
+		System.out.println("Your lucky number is:");
 		System.out.println(sum);
-		
+
 	}
-			 
-		
-		
-		   
+
+
+
+
 		//main
 
 }

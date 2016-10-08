@@ -11,7 +11,7 @@ public class CircularArrayQueue<T> {
 	
 	public CircularArrayQueue(int initialCapacity){
 		rear = front = count = 0;
-		queue = (T[])(new Object[initialCapacity])
+		queue = (T[])(new Object[initialCapacity]);
 	}
 	
 	public void enqueue(T element){
@@ -40,12 +40,12 @@ public class CircularArrayQueue<T> {
 	
 	public T first() throws EmptyCollectionException{
 		if(isEmpty())
-			throw new EmptyCollectionException;
+			throw new EmptyCollectionException();
 		return queue[front];
 	}
 	
 	public boolean isEmpty(){
-		return(count == 0)
+		return(count == 0);
 	}
 	
 	public int size(){

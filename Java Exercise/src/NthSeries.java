@@ -16,7 +16,6 @@ public class NthSeries {
 			total = total + divide;
 			b = b + 3;
 		}
-		double totalOff = Math.round(total * 100.00) / 100.00;
 		String off = String.format("%.2f", total);
 		return off;
 		
