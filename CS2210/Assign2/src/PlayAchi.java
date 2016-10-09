@@ -10,13 +10,15 @@ public class PlayAchi extends JFrame {
      private final char EMPTY = ' ';
      private final int MIN_DELAY = 400;   // Minimum amount of time in milliseconds, before
                                           // computer shows its move
-     private final int THINKING = 10000;
+     private final int THINKING = 10000;  // Number of moves considered by the computer before
+                                          // it prints a '.' for the user to know the program
+                                          // is still working
 
-     private JButton [][] gameDisplay;/* Game board */
-     private Achi t;       
-     private int board_size;    /* Size of game board */
-     private int max_level;     /* Maximum level of the game tree that
-                                   will be explored                    */
+     private JButton [][] gameDisplay;    // Game board displayed on the screen
+     private Achi game;       
+     private int board_size;    
+     private int max_level;              // Maximum level of the game tree that
+                                         // will be explored                    
 
      private int from_row = -1, from_col = -1; // Position from where a tile will be shifted
      private int to_row = -1, to_col = -1;     // Position to where a tile will be shifted
@@ -49,7 +51,7 @@ public class PlayAchi extends JFrame {
                
 	board_size = size;
 	max_level = depth;
-        t = new Achi(size,depth); /* User code needed to play */
+        game = new Achi(size,depth); /* User code needed to play */
     }
 
     
@@ -111,7 +113,7 @@ public class PlayAchi extends JFrame {
         public void actionPerformed(ActionEvent event) {
        /* --------------------------------------------- */
             if(event.getSource() instanceof JButton) { /* Some position of the 
-							 board was selected */
+							  board was selected */
 		int row = -1, col = -1;
 		PosPlay pos;
 
@@ -127,11 +129,16 @@ public class PlayAchi extends JFrame {
 		    if (row != -1) break;
 		}
 
-		if (t.numberEmptyTiles() == 1)
+		if (numberEmptyTiles() == 1)
 		    if (from_row == -1) {
-			if (t.tileIsHuman(row,col)) {
+			if (game.tileIsHuman(row,col)) {
 			    from_row = row;
 			    from_col = col;
+
+			    /* Mark position selected */
+			    gameDisplay[from_row][from_col].setIcon(new ImageIcon("marked.gif"));
+			    gameDisplay[from_row][from_col].paint(gameDisplay
+                                                              [from_row][from_col].getGraphics());
 			}
 		    }
 		    else {
@@ -142,23 +149,23 @@ public class PlayAchi extends JFrame {
 		if (validPlay(row,col)) {
 		    /* Valid play, mark it on the board */
 
-		    if (t.numberEmptyTiles() > 1) {
+		    if (numberEmptyTiles() > 1) {
 			gameDisplay[row][col].setIcon(new ImageIcon("human.gif"));
 			gameDisplay[row][col].paint(gameDisplay[row][col].getGraphics());
-			t.storePlay(row,col,HUMAN);
+			game.storePlay(row,col,HUMAN);
 		    }
 		    else {
 			gameDisplay[to_row][to_col].setIcon(new ImageIcon("human.gif"));
 			gameDisplay[from_row][from_col].setIcon(new ImageIcon("empty.gif"));
 			gameDisplay[to_row][to_col].paint(gameDisplay[to_row][to_col].getGraphics());
 			gameDisplay[from_row][from_col].paint(gameDisplay[from_row][from_col].getGraphics());
-			t.storePlay(to_row,to_col,HUMAN);
-			t.storePlay(from_row,from_col,EMPTY);
+			game.storePlay(to_row,to_col,HUMAN);
+			game.storePlay(from_row,from_col,EMPTY);
 		    }
 
-		    if (t.wins(HUMAN)) endGame("Human wins"); 
+		    if (game.wins(HUMAN)) endGame("Human wins"); 
 		    else {
-			if (t.isDraw(COMPUTER)) endGame("Game is a draw"); 
+			if (game.isDraw(COMPUTER)) endGame("Game is a draw"); 
 			else {
 			    to_row = -1;
 			    to_col = -1;
@@ -181,9 +188,9 @@ public class PlayAchi extends JFrame {
 			    }
 
 
-			    if (t.numberEmptyTiles() > 1) {
+			    if (numberEmptyTiles() > 1) {
 				// Set down a new tile
-				t.storePlay(pos.getRow(),pos.getCol(),COMPUTER);
+				game.storePlay(pos.getRow(),pos.getCol(),COMPUTER);
 				gameDisplay[pos.getRow()][pos.getCol()].setIcon(
 						      new ImageIcon("computer.gif"));
 				gameDisplay[pos.getRow()][pos.getCol()].paint(gameDisplay
@@ -192,15 +199,19 @@ public class PlayAchi extends JFrame {
 			    else {
 				// Shift tiles
 				int empty_row = -1, empty_col = -1;
+
+				// Find empty tile
 				for (int i = 0; i < board_size; ++i)
 				    for (int j = 0; j < board_size; ++j)
-					if (t.tileIsEmpty(i,j)) {
+					if (game.tileIsEmpty(i,j)) {
 					    empty_row = i;
 					    empty_col = j;
 					    break;
 					}
-				t.storePlay(pos.getRow(),pos.getCol(),EMPTY);
-				t.storePlay(empty_row,empty_col,COMPUTER);
+
+				// Make the computer's move
+				game.storePlay(pos.getRow(),pos.getCol(),EMPTY);
+				game.storePlay(empty_row,empty_col,COMPUTER);
 				gameDisplay[empty_row][empty_col].setIcon(
 						      new ImageIcon("computer.gif"));
 				gameDisplay[pos.getRow()][pos.getCol()].setIcon(
@@ -210,39 +221,59 @@ public class PlayAchi extends JFrame {
 				gameDisplay[pos.getRow()][pos.getCol()].paint(gameDisplay
 					   [pos.getRow()][pos.getCol()].getGraphics());
 			    }
-			    if (t.wins(COMPUTER)) endGame("Computer wins");
-			    else if (t.isDraw(HUMAN)) endGame("Game is a draw");
+			    if (game.wins(COMPUTER)) endGame("Computer wins");
+			    else if (game.isDraw(HUMAN)) endGame("Game is a draw");
 			}
 		    }
 		}
 		else 
-		    if (to_row != -1 || from_row == -1)
+		    if (to_row != -1 || from_row == -1) {
+			if (from_row != -1) {
+			    /* Mark selected position */
+			    gameDisplay[from_row][from_col].setIcon(new ImageIcon("human.gif"));
+			    gameDisplay[from_row][from_col].paint(gameDisplay
+                                                              [from_row][from_col].getGraphics());
+			}
+
+			to_row = -1;        /* Forget invalid play */
+			from_row = -1;
+			to_col = -1;
+			from_col = -1;
 			System.out.println("Invalid play");
+		    }
 
             }
         }
 
 
-	/* Return true if the human player selected a valid play and return false otherwise */
+       /* --------------------------------------------- */
+	private int numberEmptyTiles() {	  
+       /* --------------------------------------------- */  
+
+	    int emptytiles = 0;
+
+	    for (int i = 0; i < board_size; i++) 
+		for (int j = 0; j < board_size; j++)
+		    if (game.tileIsEmpty(i,j)) ++ emptytiles;
+
+	    return emptytiles;
+	}
+
+	/* Returns true if the human player selected a valid play and return false otherwise */
        /* --------------------------------------------- */
 	private boolean validPlay(int row, int col) {	  
        /* --------------------------------------------- */  
-	    if (t.numberEmptyTiles() > 1)
-		if (t.tileIsEmpty(row,col)) return true;
+	    if (numberEmptyTiles() > 1)
+		if (game.tileIsEmpty(row,col)) return true;
 		else return false;
 	    else 
 		if (to_row == -1 || from_row == -1) return false;
 		else 
-		    if ((t.tileIsHuman(from_row,from_col)) && (t.tileIsEmpty(to_row,to_col)))
+		    if ((game.tileIsHuman(from_row,from_col)) && (game.tileIsEmpty(to_row,to_col)))
 			if (adjacent(from_row,from_col,to_row,to_col)) return true;
 			else return false;
-		else {
-		    to_row = -1;
-		    from_row = -1;
-		    to_col = -1;
-		    from_col = -1;
-		    return false;
-		}
+		    else 
+			return false;
 	}
 
        /* Returns true if the given positions are adjacent in the game board */
@@ -273,7 +304,7 @@ public class PlayAchi extends JFrame {
 	int column;
 
 	if (level == 0)   /* Create new hash table */
-	    configurations = t.createDictionary();    
+	    configurations = game.createDictionary();    
 
         if( symbol == COMPUTER ) {
             opponent = HUMAN; value = -1;
@@ -289,26 +320,26 @@ public class PlayAchi extends JFrame {
 	else if ((numCalls % THINKING) == 0) System.out.print(".");
 
 
-	if (t.numberEmptyTiles() > 1) {
+	if (numberEmptyTiles() > 1) {
 	  // Play into an empty position of the board
           for(row = 0; row < board_size; row++)
              for(column = 0; column < board_size; column++) {
-                if(t.tileIsEmpty(row,column)) {     // Empty position
-                    t.storePlay(row,column,symbol);   // Store next play
-		    if (t.wins(symbol)||t.isDraw(opponent)||(level >= max_level))
+                if(game.tileIsEmpty(row,column)) {     // Empty position
+                    game.storePlay(row,column,symbol);   // Store next play
+		    if (game.wins(symbol)||game.isDraw(opponent)||(level >= max_level))
                         // Game ending situation or max number of levels reached 
-			reply = new PosPlay(t.evalBoard(symbol),row,column);
+			reply = new PosPlay(game.evalBoard(symbol),row,column);
 		    else {
-			lookupVal = t.repeatedConfig(configurations);
+			lookupVal = game.repeatedConfig(configurations);
 			if (lookupVal != -1) 
 			    reply = new PosPlay(lookupVal,row,column);
 			else {
 			    reply = computerPlay(opponent, highest_score, 
                                          lowest_score, level + 1);
-			    t.insertConfig(configurations,reply.getScore());
+			    game.insertConfig(configurations,reply.getScore());
 			}
 		    }
-		    t.storePlay(row,column,EMPTY);
+		    game.storePlay(row,column,EMPTY);
                     
 		    if((symbol == COMPUTER && reply.getScore() > value) ||
 		       (symbol == HUMAN && reply.getScore() < value)) {
@@ -338,7 +369,7 @@ public class PlayAchi extends JFrame {
 	    // Find position of empty spot
 	    for (int i = 0; i < board_size; ++i) {
 		for (int j = 0; j < board_size; ++j) 
-		    if(t.tileIsEmpty(i,j)) {
+		    if(game.tileIsEmpty(i,j)) {
 			empty_row = i;
 			empty_col = j;
 			break;
@@ -359,25 +390,25 @@ public class PlayAchi extends JFrame {
 	    // Check all positions adjacent to the empty spot
 	    for (row = first_row; row <= last_row; ++row)
 		for (column = first_col; column <= last_col; ++column) {
-		    if ((symbol == COMPUTER && t.tileIsComputer(row,column))||
-			(symbol == HUMAN && t.tileIsHuman(row,column))) {
-			t.storePlay(row,column,EMPTY);   // Store next play
-			t.storePlay(empty_row, empty_col,symbol);
-		        if (t.wins(symbol)||t.isDraw(opponent)||(level >= max_level))
+		    if ((symbol == COMPUTER && game.tileIsComputer(row,column))||
+			(symbol == HUMAN && game.tileIsHuman(row,column))) {
+			game.storePlay(row,column,EMPTY);   // Store next play
+			game.storePlay(empty_row, empty_col,symbol);
+		        if (game.wins(symbol)||game.isDraw(opponent)||(level >= max_level))
                         // Game ending situation or max number of levels reached 
-			  reply = new PosPlay(t.evalBoard(symbol),row,column);
+			  reply = new PosPlay(game.evalBoard(symbol),row,column);
 		        else {
-			  lookupVal = t.repeatedConfig(configurations);
+			  lookupVal = game.repeatedConfig(configurations);
 			  if (lookupVal != -1) 
 			    reply = new PosPlay(lookupVal,row,column);
 			  else {
 			    reply = computerPlay(opponent, highest_score, 
                                          lowest_score, level + 1);
-			    t.insertConfig(configurations,reply.getScore());
+			    game.insertConfig(configurations,reply.getScore());
 			  }
 		        }
-		        t.storePlay(row,column,symbol);
-			t.storePlay(empty_row,empty_col,EMPTY);
+		        game.storePlay(row,column,symbol);
+			game.storePlay(empty_row,empty_col,EMPTY);
                     
 		        if((symbol == COMPUTER && reply.getScore() > value) ||
 		           (symbol == HUMAN && reply.getScore() < value)) {
