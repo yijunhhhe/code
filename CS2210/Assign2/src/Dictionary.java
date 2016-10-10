@@ -20,7 +20,7 @@ public class Dictionary implements DictionaryADT{
             accum = accum * 33;
         }
 
-        int hashCode = c & table.length;
+        int hashCode = c % table.length;
         if(table[hashCode] == null) {
             table[hashCode] = new LinkedHashEntry(pair);
             return 0;
@@ -45,7 +45,7 @@ public class Dictionary implements DictionaryADT{
             accum = accum * 33;
         }
 
-        int hashCode = c & table.length;
+        int hashCode = c % table.length;
         if(table[hashCode] != null){
             LinkedHashEntry previous = null;
             LinkedHashEntry current = table[hashCode];
@@ -63,6 +63,27 @@ public class Dictionary implements DictionaryADT{
 
     @Override
     public int find(String config) {
+        char p = config.charAt(0);
+        int accum = 33;
+        int c = p;
+        for (int i = 1; i < config.length(); i++){
+            c = c + config.charAt(i)*accum;
+            accum = accum * 33;
+        }
 
+        int hashCode = c % table.length;
+        if(table[hashCode] == null){
+            return -1;
+        }else{
+            LinkedHashEntry entry = table[hashCode];
+            while( entry.getPair().getConfig() != config && entry != null){
+                entry = entry.getNext();
+            }
+            if (entry.getPair().getConfig() == config){
+                return entry.getPair().getScore();
+            }else{
+                return -1;
+            }
+        }
     }
 }
