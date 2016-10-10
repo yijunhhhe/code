@@ -125,7 +125,7 @@ public class Achi {
         return false;
     }
 
-    public boolean isDraw(char sysmbol){
+    public boolean isDraw(char symbol){
         int row = 0, column = 0;
         for (i = 0; i < board_size; i++) {
             for (j = 0; j < board_size; j++) {
@@ -138,8 +138,28 @@ public class Achi {
         }
 
         if(row == 0 && column == 0){
-
+            if(gameBoard[1][0] != symbol && gameBoard[0][1] != symbol && gameBoard[1][1] != symbol){
+                return true;
+            }
         }
+
+        if(row == board_size - 1 && column == 0){
+            if(gameBoard[board_size-2][0] != symbol && gameBoard[board_size -2][1] != symbol && gameBoard[board_size -1 ][1] != symbol){
+                return true;
+            }
+        }
+
+        if(row == 0 && column == board_size - 1){
+            if(gameBoard[0][board_size -2] != symbol && gameBoard[1][board_size -2] != symbol && gameBoard[1][board_size -1] != symbol)
+                return true;
+        }
+
+        if(row == board_size - 1 && column == board_size - 1 ){
+            if(gameBoard[board_size - 1][board_size - 2] != symbol && gameBoard[board_size - 2][board_size - 2] != symbol && gameBoard[board_size - 2][board_size - 1] != symbol)
+                return true;
+        }
+
+        return false;
     }
 
 
