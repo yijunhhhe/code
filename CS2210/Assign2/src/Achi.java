@@ -8,9 +8,9 @@ public class Achi {
     public Achi(int board_size, int max_levels){
         gameBoard = new char[board_size][board_size];
         this.board_size = board_size;
-        for (i = 0; i < board_size; i++){
-            for(j = 0; j < board_size; j++){
-                gameBoard[i][j] = " ";
+        for ( int i = 0; i < board_size; i++){
+            for(int j = 0; j < board_size; j++){
+                gameBoard[i][j] = ' ';
             }
         }
     }
@@ -21,8 +21,8 @@ public class Achi {
 
     public int repeatedConfig(Dictionary configurations) {
         StringBuilder config = new StringBuilder();
-        for (i = 0; i < board_size; i++) {
-            for (j = 0; j < board_size; j++) {
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
                 config.append(gameBoard[i][j]);
             }
         }
@@ -31,8 +31,8 @@ public class Achi {
 
     public void insertConfig(Dictionary configurations, int score){
         StringBuilder config = new StringBuilder();
-        for (i = 0; i < board_size; i++) {
-            for (j = 0; j < board_size; j++) {
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
                 config.append(gameBoard[i][j]);
             }
         }
@@ -41,9 +41,9 @@ public class Achi {
     }
 
     public boolean tileIsEmpty(int row, int col){
-        for (i = 0; i < board_size; i++) {
-            for (j = 0; j < board_size; j++) {
-                if (gameBoard[i][j] = " "){
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
+                if (gameBoard[i][j] == ' '){
                     return true;
                 }
             }
@@ -52,9 +52,9 @@ public class Achi {
     }
 
     public boolean titleIsComputer(int row, int col){
-        for (i = 0; i < board_size; i++) {
-            for (j = 0; j < board_size; j++) {
-                if (gameBoard[i][j] = "O"){
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
+                if (gameBoard[i][j] == 'O'){
                     return true;
                 }
             }
@@ -63,9 +63,9 @@ public class Achi {
     }
 
     public boolean tileIsHuman(int row, int col){
-        for (i = 0; i < board_size; i++) {
-            for (j = 0; j < board_size; j++) {
-                if (gameBoard[i][j] = "X"){
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
+                if (gameBoard[i][j] == 'X'){
                     return true;
                 }
             }
@@ -127,9 +127,9 @@ public class Achi {
 
     public boolean isDraw(char symbol){
         int row = 0, column = 0;
-        for (i = 0; i < board_size; i++) {
-            for (j = 0; j < board_size; j++) {
-                if(gameBoard[i][j] = " "){
+        for (int i = 0; i < board_size; i++) {
+            for (int j = 0; j < board_size; j++) {
+                if(gameBoard[i][j] == ' '){
                     row = i;
                     column = j;
                     break;
@@ -159,8 +159,27 @@ public class Achi {
                 return true;
         }
 
+        boolean a = gameBoard[row - 1][column - 1] != symbol && gameBoard[row -1][column] != symbol && gameBoard[row - 1][column + 1] != symbol ;
+        boolean b = gameBoard[row][column - 1] != symbol && gameBoard[row][column + 1] != symbol;
+        boolean c = gameBoard[row + 1][column - 1] != symbol && gameBoard[row + 1][column] != symbol && gameBoard[row + 1][column + 1] != symbol;
+        if(a && b && c){
+            return true;}
+
         return false;
     }
 
+    public int evalBoard(char symbol){
+        if (wins(symbol) == true){
+            if (symbol == 'O'){
+                return 3;
+            }else {
+                return 0;
+            }
+        }else if(isDraw(symbol) == true){
+            return 2;
+        }else{
+            return 1;
+        }
 
+    }
 }
