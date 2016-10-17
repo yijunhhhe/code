@@ -20,15 +20,18 @@ public class Dictionary implements DictionaryADT{
             accum = accum * 33;
         }
 
-        int hashCode = c % table.length;
+        int hashCode = Math.abs(c % table.length);
         if(table[hashCode] == null) {
             table[hashCode] = new LinkedHashEntry(pair);
             return 0;
-        }
+        } 
         else {
             LinkedHashEntry entry = table[hashCode];
             while (entry.getNext() != null) {
                 entry = entry.getNext();
+            }
+            if(entry.getPair().getConfig() == pair.getConfig()){
+            	throw new DictionaryException("keys are the same");
             }
             entry.setNext(new LinkedHashEntry(pair));
             return 1;
@@ -45,7 +48,7 @@ public class Dictionary implements DictionaryADT{
             accum = accum * 33;
         }
 
-        int hashCode = c % table.length;
+        int hashCode = Math.abs(c % table.length);
         if(table[hashCode] != null){
             LinkedHashEntry previous = null;
             LinkedHashEntry current = table[hashCode];
@@ -53,11 +56,16 @@ public class Dictionary implements DictionaryADT{
                 previous = current;
                 current = current.getNext();
             }
+            if(current == null){
+            	throw new DictionaryException("nonexist");
+            }
             if(previous == null){
                 table[hashCode] = current.getNext();
             }else{
                 previous.setNext(current.getNext());
             }
+        }else {
+        	throw new DictionaryException("nonexist");
         }
     }
 
@@ -71,12 +79,12 @@ public class Dictionary implements DictionaryADT{
             accum = accum * 33;
         }
 
-        int hashCode = c % table.length;
+        int hashCode = Math.abs(c % table.length);
         if(table[hashCode] == null){
             return -1;
         }else{
             LinkedHashEntry entry = table[hashCode];
-            while( entry.getPair().getConfig() != config && entry != null){
+            while( entry.getPair().getConfig() != config && entry.getNext() != null){
                 entry = entry.getNext();
             }
             if (entry.getPair().getConfig() == config){
