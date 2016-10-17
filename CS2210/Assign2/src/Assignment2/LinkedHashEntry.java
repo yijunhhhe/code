@@ -1,3 +1,4 @@
+package Assignment2;
 /**
  * Created by tambe on 2016/10/2.
  */

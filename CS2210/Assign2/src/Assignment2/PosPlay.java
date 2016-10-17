@@ -1,3 +1,4 @@
+package Assignment2;
 /* This class represents a possible play and its associated score */
 public class PosPlay {
     private int row, col; /* Row and column of the play */

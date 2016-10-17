@@ -1,3 +1,4 @@
+package Assignment2;
 /**
  * Created by tambe on 2016/10/2.
  */
@@ -30,7 +31,7 @@ public class Dictionary implements DictionaryADT{
             while (entry.getNext() != null) {
                 entry = entry.getNext();
             }
-            if(entry.getPair().getConfig() == pair.getConfig()){
+            if(entry.getPair().getConfig().equals(pair.getConfig())){
             	throw new DictionaryException("keys are the same");
             }
             entry.setNext(new LinkedHashEntry(pair));
@@ -52,12 +53,9 @@ public class Dictionary implements DictionaryADT{
         if(table[hashCode] != null){
             LinkedHashEntry previous = null;
             LinkedHashEntry current = table[hashCode];
-            while(current.getPair().getConfig() != config){
+            while(!current.getPair().getConfig().equals(config)){
                 previous = current;
                 current = current.getNext();
-            }
-            if(current == null){
-            	throw new DictionaryException("nonexist");
             }
             if(previous == null){
                 table[hashCode] = current.getNext();
@@ -84,10 +82,10 @@ public class Dictionary implements DictionaryADT{
             return -1;
         }else{
             LinkedHashEntry entry = table[hashCode];
-            while( entry.getPair().getConfig() != config && entry.getNext() != null){
+            while(!entry.getPair().getConfig().equals(config) && entry.getNext() != null){
                 entry = entry.getNext();
             }
-            if (entry.getPair().getConfig() == config){
+            if (entry.getPair().getConfig().equals(config)){
                 return entry.getPair().getScore();
             }else{
                 return -1;
